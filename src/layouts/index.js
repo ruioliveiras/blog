@@ -34,17 +34,17 @@ export default class Template extends React.Component {
     return (
       <Root>
         <Helmet
-          title="Dustin Schau - Blog"
+          title="Rui Oliveiras - Blog"
           meta={[
             {
               name: 'description',
               content:
-                'The blog of the Omaha, Nebraska based front-end developer, Dustin Schau'
+                'My personal blog, backend developer and architecture, Rui Oliveira'
             },
             {
               name: 'keywords',
               content:
-                'Developer, javascript, programming, designer, angular, react, node, user experience, design, omaha, nebraska'
+                'rui, oliveira, scala, java, jvm, architecture, software'
             }
           ]}
         />

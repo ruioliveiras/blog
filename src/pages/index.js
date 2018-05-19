@@ -13,13 +13,25 @@ const getParams = search => {
 }
 
 export default function Index({ data, location }) {
-  const { edges: posts } = data.allMarkdownRemark
+  if (data == undefined) {
+    return (
+      <div>
+        Fatal Error
+      {JSON.stringify(data)}
+      </div>
+    )
+  }
+  const { edges: posts } = (data.allMarkdownRemark != null) ? data.allMarkdownRemark : {edges : []}
   const { start = 0, end = 10 } = getParams(location.search)
   return (
     <div>
       {posts
         .filter(post => post.node.frontmatter.title.length > 0)
-        .slice(start, end)
+        .filter(post => post.node.frontmatter.tags.indexOf("pinned") > -1)
+        .concat(posts
+          .filter(post => post.node.frontmatter.title.length > 0)
+          .filter(post => post.node.frontmatter.tags.indexOf("pinned") < 0)
+          .slice(start, end))
         .map(({ node: post }) => {
           return (
             <div key={post.id}>
