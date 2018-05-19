@@ -1,0 +1,608 @@
+<!DOCTYPE html><html lang="en"><head><meta charSet="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/><link href="https://fonts.gstatic.com" rel="preconnect" crossOrigin="anonymous"/><link rel="preload" href="/component---src-layouts-index-js-bfa8dcea545c1855da41.js" as="script"/><link rel="preload" href="/component---src-templates-blog-post-js-f6d6f8c1af0210f18cae.js" as="script"/><link rel="preload" href="/path---scala-4301beb2e8621fc182a1.js" as="script"/><link rel="preload" href="/app-b57d7d73b9c30def67f8.js" as="script"/><link rel="preload" href="/commons-988ff8a34a4e50b6c778.js" as="script"/><style type="text/css" data-styled-components="eTzlhe jpQFXF iuAhMc fjcXyM clHDjp gTXDNM fYeLTY jhBgmt hSXAic cVmumm jRdDbP hpPTKp dqfGXQ iwNQwu fEcXGS dkcbGd krhCRj ICZsf gSdWKa fpYxkK dVEktx iHsYxQ SZdRx jCCrki kulSxP infYH" data-styled-components-is-local="true">/* sc-component-id: sc-kAzzGY */
+
+.eTzlhe{display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-flex-direction:column;-ms-flex-direction:column;flex-direction:column;height:100%;}
+/* sc-component-id: sc-gZMcBi */
+
+.jpQFXF{height:15vh;background-color:#ffa81f;color:blue;position:fixed;top:0;right:0;left:0;display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-flex-direction:column;-ms-flex-direction:column;flex-direction:column;-webkit-box-pack:center;-webkit-justify-content:center;-ms-flex-pack:center;justify-content:center;-webkit-align-items:center;-webkit-box-align:center;-ms-flex-align:center;align-items:center;background:linear-gradient(#ffa81f,#d85d15);background-size:250% 250%;-webkit-animation:kKvztC 10s ease infinite;animation:kKvztC 10s ease infinite;font-weight:400;-webkit-transition:height 250ms ease-in-out;transition:height 250ms ease-in-out;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none;}@media only screen and (min-width:768px){.jpQFXF{height:30vh;}}
+/* sc-component-id: sc-gqjmRU */
+
+.iuAhMc{display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-flex-wrap:wrap;-ms-flex-wrap:wrap;flex-wrap:wrap;font-size:2rem;text-transform:uppercase;font-weight:700;-webkit-align-items:center;-webkit-box-align:center;-ms-flex-align:center;align-items:center;-webkit-transition:font-size 250ms ease-in-out,padding 150ms ease-in;transition:font-size 250ms ease-in-out,padding 150ms ease-in;background-color:#002635;color:white;padding:0.5rem 1rem;margin:0;width:auto;-webkit-user-select:text;-moz-user-select:text;-ms-user-select:text;user-select:text;}.wf-active .iuAhMc{font-family:'Montserrat',sans-serif;}@media only screen and (min-width:375px){.iuAhMc{font-size:2.5rem;}}@media only screen and (min-width:768px){.iuAhMc{font-size:4.5rem;padding:1rem 2rem;}}
+/* sc-component-id: sc-jzJRlG */
+
+.fjcXyM{color:inherit;}
+/* sc-component-id: sc-jTzLTM */
+
+.clHDjp{padding-right:2vw;font-weight:700;white-space:nowrap;}
+/* sc-component-id: sc-VigVT */
+
+.gTXDNM{display:inline-block;position:relative;z-index:3;}.gTXDNM:hover{-webkit-animation:lisfJs 1000ms ease-in-out;animation:lisfJs 1000ms ease-in-out;}
+/* sc-component-id: sc-fjdhpX */
+
+.fYeLTY{font-weight:400;white-space:nowrap;}
+/* sc-component-id: sc-bdVaJa */
+
+.jhBgmt{position:absolute;top:15vh;right:0;left:0;margin:0 auto;max-width:840px;z-index:2;}@media only screen and (min-width:768px){.jhBgmt{top:25vh;}}
+/* sc-component-id: sc-Rmtcm */
+
+.hSXAic{max-width:100%;-webkit-transform:translateY(16px) scale(.99);-ms-transform:translateY(16px) scale(.99);transform:translateY(16px) scale(.99);-webkit-transform-origin:50% 0;-ms-transform-origin:50% 0;transform-origin:50% 0;opacity:0;-webkit-animation:imEtRc 0.3s cubic-bezier(.39,.575,.565,1) both;animation:imEtRc 0.3s cubic-bezier(.39,.575,.565,1) both;}
+/* sc-component-id: sc-jKJlTe */
+
+.cVmumm{position:relative;width:100%;background-color:white;box-shadow:0 0 4px 1px rgba(0,0,0,.2);background-color:white;outline:1px solid rgba(0,0,0,0.125);box-shadow:0 0 4px 1px rgba(0,0,0,.2);box-sizing:border-box;display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-flex-direction:column;-ms-flex-direction:column;flex-direction:column;-webkit-align-items:center;-webkit-box-align:center;-ms-flex-align:center;align-items:center;padding-bottom:1.5rem;}.cVmumm:last-child{border-bottom-width:0;}@media only screen and (min-width:768px){.cVmumm{margin-bottom:0;padding-bottom:3rem;}}
+/* sc-component-id: sc-chPdSV */
+
+.jRdDbP{display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;width:100%;-webkit-box-pack:center;-webkit-justify-content:center;-ms-flex-pack:center;justify-content:center;z-index:1;background:hsl(196,90%,20%);color:white;position:relative;padding-top:1.5rem;padding-bottom:2.25rem;-webkit-transition:background-color 125ms ease-in-out;transition:background-color 125ms ease-in-out;}@media only screen and (min-width:768px){.jRdDbP{padding:2.625rem 0;}}
+/* sc-component-id: sc-kgoBCf */
+
+.hpPTKp{display:block;margin:0;font-size:1.5rem;line-height:2.25rem;}@media only screen and (min-width:768px){.hpPTKp{padding:0.75rem 0;border-top:4px solid #fff;border-bottom:4px solid #fff;font-size:2.25rem;line-height:3rem;}}
+/* sc-component-id: sc-dxgOiQ */
+
+.dqfGXQ{display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;padding-bottom:0.375rem;}
+/* sc-component-id: sc-gzVnrw */
+
+.iwNQwu{left:0;}
+/* sc-component-id: sc-EHOje */
+
+.fEcXGS{position:absolute;top:0;background-color:transparent;color:white;text-decoration:none;padding:0 0.75rem;height:2.25rem;line-height:44px;display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-align-items:center;-webkit-box-align:center;-ms-flex-align:center;align-items:center;-webkit-box-pack:space-around;-webkit-justify-content:space-around;-ms-flex-pack:space-around;justify-content:space-around;-webkit-transition:all 125ms ease-in-out;transition:all 125ms ease-in-out;text-transform:uppercase;font-family:sans-serif;font-size:0.75rem;z-index:2;}.fEcXGS:hover{background-color:white;color:hsl(196,90%,20%);}.wf-active .fEcXGS{font-family:'Montserrat',sans-serif;}.fEcXGS .content{display:none;padding:0 0.375rem;}.fEcXGS .icon{font-size:1.125rem;}@media only screen and (min-width:768px){.fEcXGS .content{display:inline-block;white-space:nowrap;}}
+/* sc-component-id: sc-htoDjs */
+
+.dkcbGd{right:0;}
+/* sc-component-id: sc-kpOJdX */
+
+.krhCRj{position:absolute;bottom:8px;left:50%;-webkit-transform:translateX(-50%);-ms-transform:translateX(-50%);transform:translateX(-50%);margin:0;padding:0;color:rgba(255,255,255,0.9);font-size:1.125rem;font-weight:400;z-index:2;}
+/* sc-component-id: sc-eNQAEJ */
+
+.ICZsf{max-width:100%;padding:1.125rem 1.5rem;}@media only screen and (min-width:768px){.ICZsf{padding:1.5rem 3rem;padding-top:1.5rem;}}
+/* sc-component-id: sc-hMqMXs */
+
+.gSdWKa{border:0;width:75%;margin:0.75rem auto;border-bottom:1px solid #eee;}
+/* sc-component-id: sc-ckVGcZ */
+
+.fpYxkK{display:inline-block;background-color:white;padding:0.5rem 1.5rem;font-size:1.125rem;font-weight:bold;text-decoration:none;text-align:center;text-transform:uppercase;border-width:2px;border-style:solid;-webkit-transition:all 125ms ease-in-out;transition:all 125ms ease-in-out;font-family:sans-serif;background-color:hsl(196,90%,20%);color:white;border-color:hsl(196,90%,20%);}.fpYxkK:hover{color:hsl(196,90%,20%);background-color:white;}
+/* sc-component-id: sc-kkGfuU */
+
+.dVEktx{display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-align-items:center;-webkit-box-align:center;-ms-flex-align:center;align-items:center;}
+/* sc-component-id: sc-kEYyzF */
+
+.iHsYxQ{font-size:32px;margin-right:0.5rem;}
+/* sc-component-id: sc-ifAKCX */
+
+.SZdRx{display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-box-pack:center;-webkit-justify-content:center;-ms-flex-pack:center;justify-content:center;-webkit-align-items:center;-webkit-box-align:center;-ms-flex-align:center;align-items:center;padding:1rem 0.5rem;}
+/* sc-component-id: sc-bxivhb */
+
+.jCCrki{display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-flex-direction:row;-ms-flex-direction:row;flex-direction:row;-webkit-align-items:center;-webkit-box-align:center;-ms-flex-align:center;align-items:center;-webkit-box-pack:justify;-webkit-justify-content:space-between;-ms-flex-pack:justify;justify-content:space-between;width:240px;}.jCCrki .button{margin:0.5rem 0;}
+/* sc-component-id: sc-bwzfXH */
+
+.kulSxP{display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-flex-direction:column;-ms-flex-direction:column;flex-direction:column;}
+/* sc-component-id: sc-htpNat */
+
+.infYH{display:inline-block;text-decoration:none;color:rgba(255,255,255,0.6);-webkit-transition:color 175ms ease-in-out,-webkit-transform 175ms ease-in-out;-webkit-transition:color 175ms ease-in-out,transform 175ms ease-in-out;transition:color 175ms ease-in-out,transform 175ms ease-in-out;}.infYH:hover{-webkit-transform:scale(1.1);-ms-transform:scale(1.1);transform:scale(1.1);color:rgba(255,255,255,1);}
+</style><link rel="manifest" href="/manifest.json"/><meta name="theme-color" content="#002635"/><style type="text/css">
+    .anchor {
+      float: left;
+      padding-right: 4px;
+      margin-left: -20px;
+    }
+    h1 .anchor svg,
+    h2 .anchor svg,
+    h3 .anchor svg,
+    h4 .anchor svg,
+    h5 .anchor svg,
+    h6 .anchor svg {
+      visibility: hidden;
+    }
+    h1:hover .anchor svg,
+    h2:hover .anchor svg,
+    h3:hover .anchor svg,
+    h4:hover .anchor svg,
+    h5:hover .anchor svg,
+    h6:hover .anchor svg {
+      visibility: visible;
+    }
+  </style><script>
+    document.addEventListener("DOMContentLoaded", function(event) {
+      var hash = window.decodeURI(location.hash.replace('#', ''))
+      if (hash !== '') {
+        var element = document.getElementById(hash)
+        if (element) {
+          var offset = element.offsetTop
+          // Wait for the browser to finish rendering before scrolling.
+          setTimeout((function() {
+            window.scrollTo(0, offset - 0)
+          }), 0)
+        }
+      }
+    })
+  </script><title data-react-helmet="true">Dustin Schau - Scala Language Tutorial</title><meta data-react-helmet="true" name="keywords" content="rui, oliveira, scala, java, jvm, architecture, software"/><meta data-react-helmet="true" name="description" content="&lt;p&gt;I will start with some generic concepts &lt;b&gt;Mutability and Immutability&lt;/b&gt; and &lt;b&gt;Singleton object&lt;/b&gt; that are not specific of the scala language.&lt;/p&gt;
+&lt;p&gt;Next, I have separated the main features in 3 Charters:  &lt;b&gt;Scala as a Object Oriented Language&lt;/b&gt;, &lt;b&gt;Scala as a Functional language&lt;/b&gt;, &lt;b&gt;Scala as a Script language&lt;/b&gt;.  I like to say that scala was the qualities of all kind paradigms. It is possible to take advantage of each paradigm. &lt;/p&gt; "/><meta data-react-helmet="true" name="og:description" content="&lt;p&gt;I will start with some generic concepts &lt;b&gt;Mutability and Immutability&lt;/b&gt; and &lt;b&gt;Singleton object&lt;/b&gt; that are not specific of the scala language.&lt;/p&gt;
+&lt;p&gt;Next, I have separated the main features in 3 Charters:  &lt;b&gt;Scala as a Object Oriented Language&lt;/b&gt;, &lt;b&gt;Scala as a Functional language&lt;/b&gt;, &lt;b&gt;Scala as a Script language&lt;/b&gt;.  I like to say that scala was the qualities of all kind paradigms. It is possible to take advantage of each paradigm. &lt;/p&gt; "/><meta data-react-helmet="true" name="twitter:description" content="&lt;p&gt;I will start with some generic concepts &lt;b&gt;Mutability and Immutability&lt;/b&gt; and &lt;b&gt;Singleton object&lt;/b&gt; that are not specific of the scala language.&lt;/p&gt;
+&lt;p&gt;Next, I have separated the main features in 3 Charters:  &lt;b&gt;Scala as a Object Oriented Language&lt;/b&gt;, &lt;b&gt;Scala as a Functional language&lt;/b&gt;, &lt;b&gt;Scala as a Script language&lt;/b&gt;.  I like to say that scala was the qualities of all kind paradigms. It is possible to take advantage of each paradigm. &lt;/p&gt; "/><meta data-react-helmet="true" name="og:title" content="Scala Language Tutorial"/><meta data-react-helmet="true" name="og:type" content="article"/><meta data-react-helmet="true" name="article:author" content="Dustin Schau"/><meta data-react-helmet="true" name="twitter:creator" content="schaudustin"/><meta data-react-helmet="true" name="author" content="Dustin Schau"/><meta data-react-helmet="true" name="twitter:label1" content="Reading time"/><meta data-react-helmet="true" name="twitter:data1" content="12 min read"/><meta data-react-helmet="true" name="article:published_time" content="2017-01-15T23:36:56.503Z"/><style id="typography.js">html{font-family:sans-serif;-ms-text-size-adjust:100%;-webkit-text-size-adjust:100%}body{margin:0}article,aside,details,figcaption,figure,footer,header,main,menu,nav,section,summary{display:block}audio,canvas,progress,video{display:inline-block}audio:not([controls]){display:none;height:0}progress{vertical-align:baseline}[hidden],template{display:none}a{background-color:transparent;-webkit-text-decoration-skip:objects}a:active,a:hover{outline-width:0}abbr[title]{border-bottom:none;text-decoration:underline;text-decoration:underline dotted}b,strong{font-weight:inherit;font-weight:bolder}dfn{font-style:italic}h1{font-size:2em;margin:.67em 0}mark{background-color:#ff0;color:#000}small{font-size:80%}sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline}sub{bottom:-.25em}sup{top:-.5em}img{border-style:none}svg:not(:root){overflow:hidden}code,kbd,pre,samp{font-family:monospace,monospace;font-size:1em}figure{margin:1em 40px}hr{box-sizing:content-box;height:0;overflow:visible}button,input,optgroup,select,textarea{font:inherit;margin:0}optgroup{font-weight:700}button,input{overflow:visible}button,select{text-transform:none}[type=reset],[type=submit],button,html [type=button]{-webkit-appearance:button}[type=button]::-moz-focus-inner,[type=reset]::-moz-focus-inner,[type=submit]::-moz-focus-inner,button::-moz-focus-inner{border-style:none;padding:0}[type=button]:-moz-focusring,[type=reset]:-moz-focusring,[type=submit]:-moz-focusring,button:-moz-focusring{outline:1px dotted ButtonText}fieldset{border:1px solid silver;margin:0 2px;padding:.35em .625em .75em}legend{box-sizing:border-box;color:inherit;display:table;max-width:100%;padding:0;white-space:normal}textarea{overflow:auto}[type=checkbox],[type=radio]{box-sizing:border-box;padding:0}[type=number]::-webkit-inner-spin-button,[type=number]::-webkit-outer-spin-button{height:auto}[type=search]{-webkit-appearance:textfield;outline-offset:-2px}[type=search]::-webkit-search-cancel-button,[type=search]::-webkit-search-decoration{-webkit-appearance:none}::-webkit-input-placeholder{color:inherit;opacity:.54}::-webkit-file-upload-button{-webkit-appearance:button;font:inherit}html{font:112.5%/1.5em 'georgia',serif;box-sizing:border-box;overflow-y:scroll;}*{box-sizing:inherit;}*:before{box-sizing:inherit;}*:after{box-sizing:inherit;}body{color:hsla(0,0%,0%,0.8);font-family:'georgia',serif;font-weight:normal;word-wrap:break-word;font-kerning:normal;-moz-font-feature-settings:"kern", "liga", "clig", "calt";-ms-font-feature-settings:"kern", "liga", "clig", "calt";-webkit-font-feature-settings:"kern", "liga", "clig", "calt";font-feature-settings:"kern", "liga", "clig", "calt";}img{max-width:100%;margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:1.5rem;}h1{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:1.5rem;color:inherit;font-family:-apple-system,'BlinkMacSystemFont','Segoe UI','Roboto','Oxygen','Ubuntu','Cantarell','Fira Sans','Droid Sans','Helvetica Neue',sans-serif;font-weight:bold;text-rendering:optimizeLegibility;font-size:2.25rem;line-height:1.1;}h2{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:1.5rem;color:inherit;font-family:-apple-system,'BlinkMacSystemFont','Segoe UI','Roboto','Oxygen','Ubuntu','Cantarell','Fira Sans','Droid Sans','Helvetica Neue',sans-serif;font-weight:bold;text-rendering:optimizeLegibility;font-size:1.62671rem;line-height:1.1;}h3{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:1.5rem;color:inherit;font-family:-apple-system,'BlinkMacSystemFont','Segoe UI','Roboto','Oxygen','Ubuntu','Cantarell','Fira Sans','Droid Sans','Helvetica Neue',sans-serif;font-weight:bold;text-rendering:optimizeLegibility;font-size:1.38316rem;line-height:1.1;}h4{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:1.5rem;color:inherit;font-family:-apple-system,'BlinkMacSystemFont','Segoe UI','Roboto','Oxygen','Ubuntu','Cantarell','Fira Sans','Droid Sans','Helvetica Neue',sans-serif;font-weight:bold;text-rendering:optimizeLegibility;font-size:1rem;line-height:1.1;}h5{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:1.5rem;color:inherit;font-family:-apple-system,'BlinkMacSystemFont','Segoe UI','Roboto','Oxygen','Ubuntu','Cantarell','Fira Sans','Droid Sans','Helvetica Neue',sans-serif;font-weight:bold;text-rendering:optimizeLegibility;font-size:0.85028rem;line-height:1.1;}h6{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:1.5rem;color:inherit;font-family:-apple-system,'BlinkMacSystemFont','Segoe UI','Roboto','Oxygen','Ubuntu','Cantarell','Fira Sans','Droid Sans','Helvetica Neue',sans-serif;font-weight:bold;text-rendering:optimizeLegibility;font-size:0.78405rem;line-height:1.1;}hgroup{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:1.5rem;}ul{margin-left:1.5rem;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:1.5rem;list-style-position:outside;list-style-image:none;}ol{margin-left:1.5rem;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:1.5rem;list-style-position:outside;list-style-image:none;}dl{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:1.5rem;}dd{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:1.5rem;}p{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:1.5rem;}figure{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:1.5rem;}pre{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:1.5rem;font-size:0.85rem;line-height:1.42;background:hsla(0,0%,0%,0.04);border-radius:3px;overflow:auto;word-wrap:normal;padding:1.5rem;}table{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:1.5rem;font-size:1rem;line-height:1.5rem;border-collapse:collapse;width:100%;}fieldset{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:1.5rem;}blockquote{margin-left:1.5rem;margin-right:1.5rem;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:1.5rem;}form{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:1.5rem;}noscript{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:1.5rem;}iframe{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:1.5rem;}hr{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:calc(1.5rem - 1px);background:hsla(0,0%,0%,0.2);border:none;height:1px;}address{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:1.5rem;}b{font-weight:bold;}strong{font-weight:bold;}dt{font-weight:bold;}th{font-weight:bold;}li{margin-bottom:calc(1.5rem / 2);}ol li{padding-left:0;}ul li{padding-left:0;}li > ol{margin-left:1.5rem;margin-bottom:calc(1.5rem / 2);margin-top:calc(1.5rem / 2);}li > ul{margin-left:1.5rem;margin-bottom:calc(1.5rem / 2);margin-top:calc(1.5rem / 2);}blockquote *:last-child{margin-bottom:0;}li *:last-child{margin-bottom:0;}p *:last-child{margin-bottom:0;}li > p{margin-bottom:calc(1.5rem / 2);}code{font-size:0.85rem;line-height:1.5rem;}kbd{font-size:0.85rem;line-height:1.5rem;}samp{font-size:0.85rem;line-height:1.5rem;}abbr{border-bottom:1px dotted hsla(0,0%,0%,0.5);cursor:help;}acronym{border-bottom:1px dotted hsla(0,0%,0%,0.5);cursor:help;}abbr[title]{border-bottom:1px dotted hsla(0,0%,0%,0.5);cursor:help;text-decoration:none;}thead{text-align:left;}td,th{text-align:left;border-bottom:1px solid hsla(0,0%,0%,0.12);font-feature-settings:"tnum";-moz-font-feature-settings:"tnum";-ms-font-feature-settings:"tnum";-webkit-font-feature-settings:"tnum";padding-left:1rem;padding-right:1rem;padding-top:0.75rem;padding-bottom:calc(0.75rem - 1px);}th:first-child,td:first-child{padding-left:0;}th:last-child,td:last-child{padding-right:0;}tt,code{background-color:hsla(0,0%,0%,0.04);border-radius:3px;font-family:"SFMono-Regular", Consolas,"Roboto Mono","Droid Sans Mono","Liberation Mono",Menlo,Courier,monospace;padding:0;padding-top:0.2em;padding-bottom:0.2em;}pre code{background:none;line-height:1.42;}code:before,code:after,tt:before,tt:after{letter-spacing:-0.2em;content:" ";}pre code:before,pre code:after,pre tt:before,pre tt:after{content:none;}@media only screen and (max-width:480px){html{font-size:100%;}}</style><style>.particles-js-canvas-el{position:absolute;top:0;right:0;bottom:0;left:0}#___gatsby,body,html{height:100%}body{background-color:#002635}::-moz-selection{background:#ff6138;color:#fff}::selection{background:#ff6138;color:#fff}.gatsby-highlight-code-line{background-color:#444;display:block;margin-right:-1em;margin-left:-1em;padding-right:1em;padding-left:.75em;border-left:.25em solid #66d9ef}.gatsby-highlight{background-color:#272822;border-radius:.3em;margin:.5em 0;padding:1em;overflow:auto}.gatsby-highlight pre[class*=language-]{background-color:transparent;margin:0;padding:0;overflow:visible;overflow:initial;float:left;min-width:100%}.gatsby-resp-image-wrapper{z-index:1!important}.wf-active .post h1{font-family:Bitter,Georgia,serif}.post h1,.post h2,.post h3,.post h4,.post h5{font-family:Georgia,serif;letter-spacing:.6px;word-spacing:0}.post-content a:not(.anchor){display:inline;color:#d85d15;position:relative;text-decoration:none;padding:2px;transition:all 175ms ease-in-out}.post-content a:after,.post-content a:before{content:"";position:absolute;left:0;right:0;width:100%;height:1px;background-color:#d85d15}.post-content a:hover{background-color:rgba(216,93,21,.05)}.post-content a:after{bottom:-2px;transition:.2s ease-out}.post-content a:before{top:-2px;-ms-transform:translateY(24px);transform:translateY(24px);opacity:0;transition:.2s ease-out}.post-content a:hover:before{-ms-transform-origin:center top;transform-origin:center top;-ms-transform:translateY(0) scaleX(1.025);transform:translateY(0) scaleX(1.025);opacity:1}.post-content a:hover:after{-ms-transform-origin:center bottom;transform-origin:center bottom;-ms-transform:scaleX(1.025);transform:scaleX(1.025)}.post-content blockquote{margin-left:.75rem;padding-left:1.5rem;border-left:4px solid #ddd}.post-content video.responsive{max-width:100%;max-height:100%}code[class*=language-],pre[class*=language-]{color:#f8f8f2;background:none;text-shadow:0 1px rgba(0,0,0,.3);font-family:Consolas,Monaco,Andale Mono,Ubuntu Mono,monospace;text-align:left;white-space:pre;word-spacing:normal;word-break:normal;word-wrap:normal;line-height:1.5;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-hyphens:none;-ms-hyphens:none;hyphens:none}pre[class*=language-]{padding:1em;margin:.5em 0;overflow:auto;border-radius:.3em}:not(pre)>code[class*=language-],pre[class*=language-]{background:#272822}:not(pre)>code[class*=language-]{padding:.1em;border-radius:.3em;white-space:normal}.token.cdata,.token.comment,.token.doctype,.token.prolog{color:#708090}.token.punctuation{color:#f8f8f2}.namespace{opacity:.7}.token.constant,.token.deleted,.token.property,.token.symbol,.token.tag{color:#f92672}.token.boolean,.token.number{color:#ae81ff}.token.attr-name,.token.builtin,.token.char,.token.inserted,.token.selector,.token.string{color:#a6e22e}.language-css .token.string,.style .token.string,.token.entity,.token.operator,.token.url,.token.variable{color:#f8f8f2}.token.atrule,.token.attr-value,.token.function{color:#e6db74}.token.keyword{color:#66d9ef}.token.important,.token.regex{color:#fd971f}.token.bold,.token.important{font-weight:700}.token.italic{font-style:italic}.token.entity{cursor:help}</style></head><body><div id="___gatsby"><div class="sc-kAzzGY eTzlhe" data-reactroot=""><header class="sc-gZMcBi jpQFXF" id="blog-header"><h1 class="name sc-gqjmRU iuAhMc"><a class="sc-jzJRlG fjcXyM" href="/"><span class="sc-jTzLTM clHDjp"><span class="sc-VigVT gTXDNM">R</span><span class="sc-VigVT gTXDNM">u</span><span class="sc-VigVT gTXDNM">i</span></span><span class="sc-fjdhpX fYeLTY"><span class="sc-VigVT gTXDNM">O</span><span class="sc-VigVT gTXDNM">l</span><span class="sc-VigVT gTXDNM">i</span><span class="sc-VigVT gTXDNM">v</span><span class="sc-VigVT gTXDNM">e</span><span class="sc-VigVT gTXDNM">i</span><span class="sc-VigVT gTXDNM">r</span><span class="sc-VigVT gTXDNM">a</span></span></a></h1></header><main class="sc-bdVaJa jhBgmt"><div class="sc-Rmtcm hSXAic"><section class="post blog-post sc-jKJlTe cVmumm"><div class="sc-chPdSV jRdDbP" title="Scala Language Tutorial"><h1 class="post-title sc-kgoBCf hpPTKp">Scala Language Tutorial</h1><div class="sc-dxgOiQ dqfGXQ"><div><a class="sc-gzVnrw iwNQwu sc-EHOje fEcXGS" title="Scala Language Tutorial" href="/web-summit-2016"><svg fill="currentColor" preserveAspectRatio="xMidYMid meet" height="1em" width="1em" viewBox="0 0 40 40" class="icon" style="vertical-align:middle"><g><path d="m31.1 6.7l-11.8 11.9 11.8 11.8q0.5 0.4 0.5 1t-0.5 1l-3.7 3.7q-0.4 0.5-1 0.5t-1-0.5l-16.5-16.5q-0.5-0.4-0.5-1t0.5-1l16.5-16.6q0.5-0.4 1-0.4t1 0.4l3.7 3.7q0.5 0.4 0.5 1t-0.5 1z"></path></g></svg><span class="content">Web Summit 2016</span></a><a class="sc-htoDjs dkcbGd sc-EHOje fEcXGS" title="Scala Language Tutorial" href="/about"><span class="content">About</span><svg fill="currentColor" preserveAspectRatio="xMidYMid meet" height="1em" width="1em" viewBox="0 0 40 40" class="icon" style="vertical-align:middle"><g><path d="m31.2 19.6l-16.6 16.5q-0.4 0.5-1 0.5t-1-0.5l-3.7-3.7q-0.4-0.4-0.4-1t0.4-1l11.9-11.8-11.9-11.9q-0.4-0.4-0.4-1t0.4-1l3.7-3.7q0.5-0.4 1-0.4t1 0.4l16.6 16.6q0.4 0.4 0.4 1t-0.4 1z"></path></g></svg></a></div><h2 class="sc-kpOJdX krhCRj">January 15, 2017</h2></div></div><div class="sc-eNQAEJ ICZsf"><div class="post-content"><h1 id="scala-language-tutorial"><a href="#scala-language-tutorial" aria-hidden="true" class="anchor"><svg aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Scala Language Tutorial</h1>
+<h4 id="hot-links"><a href="#hot-links" aria-hidden="true" class="anchor"><svg aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Hot links</h4>
+<p>Scala Oficial: <a href="http://www.scala-lang.org">http://www.scala-lang.org</a></p>
+<p>Nice post: <a href="http://lampwww.epfl.ch/~michelou/scala/using-scala-from-java.html">http://lampwww.epfl.ch/~michelou/scala/using-scala-from-java.html</a></p>
+<p><strong>How Install</strong>: <a href="http://www.scala-lang.org/download/install.html">http://www.scala-lang.org/download/install.html</a> ;</p>
+<p>It is just:</p>
+<ol>
+<li>Download scala</li>
+<li>Crete path variable $SCALA_HOME </li>
+<li>Update the variable $PATH to have the $SCALA_HOME/bin
+And you have the ‘scala’ command wich gives you a Scala intepretor</li>
+</ol>
+<p><strong>Scala Ide</strong>: <a href="http://scala-ide.org">http://scala-ide.org</a>
+(an easy way to install and work with scala)</p>
+<p><strong>SBT</strong>: <a href="http://www.scala-sbt.org/">http://www.scala-sbt.org/</a>
+Is the scala build tool which manage dependencies. Sbt is for scala like Maven is for JAVA.</p>
+<h2 id="introduction"><a href="#introduction" aria-hidden="true" class="anchor"><svg aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Introduction</h2>
+<p>I will start with some generic concepts (<a href="#mutability-ummitability">Mutability and Immutability</a> and <a href="#singleton">Singleton object</a>) that are not specific of the scala language.</p>
+<p>Next, I have separated the main features in 3 Charters:  <a href="#scala-oo">Scala as a Object Oriented Language</a>, <a href="#scala-functional">Scala as a Functional language</a>, <a href="#scala-script">Scala as a Script language</a>.
+I like to say that scala was the qualities of all kind paradigms.
+It is possible to take advantage of each paradigm.</p>
+<p>In the future I would like to pick some other topic: Reflection and Macros - this two things are still currently in experimental, but they are very cool and usable;
+Concurrency  which in Scala is very intuitive;
+Native XML scala feature;
+and notes about string processing. </p>
+<p>This tutorial is currently beeing writed in my free times, so in the end there are some topics which are not writed yet .</p>
+<h2 id="scala-ecosystem"><a href="#scala-ecosystem" aria-hidden="true" class="anchor"><svg aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Scala Ecosystem</h2>
+<p>Tools</p>
+<p><a name="concepts"></a></p>
+<h2 id="concepts"><a href="#concepts" aria-hidden="true" class="anchor"><svg aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Concepts</h2>
+<p>Before we get started, we must know about a few general concepts.
+Concepts that are not specific from the Scala language but general from the programming.
+But where in Scala they are more used or has more importance.</p>
+<p><a name="mutability-ummitability"></a></p>
+<h3 id="mutability-and-immutability"><a href="#mutability-and-immutability" aria-hidden="true" class="anchor"><svg aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Mutability and Immutability</h3>
+<p>Immutability is one of pillars of a functional language.</p>
+<p>** Mutable variable ** its state can change over time.</p>
+<p>** Immutable variable ** its state can’t change over time.</p>
+<p>Immutability advantages</p>
+<ul>
+<li>Is very good for concurrency (many threads changing the value of one variable at same time may be dangerous )</li>
+<li>Code more clean</li>
+</ul>
+<p>Immutability disadvantages</p>
+<ul>
+<li>May be  costly to be recreating objects on each change</li>
+</ul>
+<p><a name="singleton"></a></p>
+<h3 id="singleton-object"><a href="#singleton-object" aria-hidden="true" class="anchor"><svg aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Singleton object</h3>
+<p>Singleton objects are unique at the runtime. There will not exist at same time two instances of this objects types.</p>
+<p>In Java, a class have its own static scope, where are declared static methods and variables. This static scope of the class, in java, are nothing more that a built-in singleton object</p>
+<p>But in Scala there aren’t the keyword static.
+Instead there are classes and singleton objects, they are managed differently.</p>
+<p><a name="scala-oo"></a></p>
+<h2 id="scala-as-a-object-oriented-language"><a href="#scala-as-a-object-oriented-language" aria-hidden="true" class="anchor"><svg aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Scala as a Object Oriented Language</h2>
+<p>In Scala you can do everything that you already could do in JAVA, or in other Object oriented language.
+The main difference could be that in Scala there aren’t static scope variables. But an equivalent thing:
+If you need a static variable for the class A, you create an object A in the same file, and place
+the variable there. </p>
+<p><a name="objects-class"></a></p>
+<h3 id="objects-and-class"><a href="#objects-and-class" aria-hidden="true" class="anchor"><svg aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Objects and Class</h3>
+<p><strong>Class</strong>: is equivalent to Java. </p>
+<div class="gatsby-highlight">
+      <pre class="language-scala"><code><span class="token comment">// declaring a class you can create a default constructor. This constructor </span>
+<span class="token comment">// define the constructor arguments and class Attribute at same time. </span>
+<span class="token keyword">class</span> Example<span class="token punctuation">(</span>favoriteNumber<span class="token operator">:</span><span class="token builtin">Int</span><span class="token punctuation">,</span> name<span class="token operator">:</span><span class="token builtin">String</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+<span class="token comment">//  an attribute</span>
+<span class="token keyword">private</span> <span class="token keyword">val</span> dadFavoriteNumber<span class="token operator">:</span><span class="token builtin">Int</span> <span class="token operator">=</span> favoriteNumber <span class="token operator">*</span> <span class="token number">2</span>
+<span class="token comment">// defining other constructor, on this case calling the default constructor</span>
+<span class="token keyword">def</span> <span class="token keyword">this</span><span class="token punctuation">(</span>favoriteNumber<span class="token operator">:</span><span class="token builtin">Long</span><span class="token punctuation">)</span> <span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">(</span>favoriteNumber<span class="token punctuation">.</span>toInt<span class="token punctuation">,</span> <span class="token string">"default-name"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment">// defining a method without arguments with Int Return</span>
+<span class="token keyword">def</span> dadNumber<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">:</span><span class="token builtin">Int</span> <span class="token operator">=</span> dadFavoriteNumber
+<span class="token comment">// this is equivalent to</span>
+<span class="token comment">// def dadNumber():Int = {return dadFavoriteNumber; }</span>
+<span class="token punctuation">}</span>
+<span class="token comment">// instantiating with firt constructor</span>
+<span class="token keyword">new</span> Example<span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token string">"ruiOliveira"</span><span class="token punctuation">)</span><span class="token punctuation">.</span>dadNumber<span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token comment">// instantiating with second constructor</span>
+<span class="token keyword">new</span> Example<span class="token punctuation">(</span><span class="token number">2l</span><span class="token punctuation">)</span><span class="token punctuation">.</span>dadNumber<span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token comment">// 2l -> is a scala way to create Longs</span>
+</code></pre>
+      </div>
+<p>Run scala intepretor in the shell (command ‘scala’), and copy-paste this code and test.</p>
+<p><strong>Object</strong>: is a tool that can be used in different situations.
+One used situation is to work has a singleton, as you can see:</p>
+<div class="gatsby-highlight">
+      <pre class="language-scala"><code><span class="token comment">// (Requires the Example class definition in the intepretor)</span>
+
+<span class="token comment">// a singleton object </span>
+<span class="token keyword">object</span> Example<span class="token punctuation">{</span>
+<span class="token comment">// This variable can be seen has a static variable in Example </span>
+<span class="token keyword">var</span> counter<span class="token operator">:</span><span class="token builtin">Int</span> <span class="token operator">=</span> <span class="token number">10</span>
+<span class="token comment">// this method can be seend has a Static method in the Example</span>
+<span class="token keyword">def</span> counterPlusOne<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">:</span><span class="token builtin">Int</span> <span class="token operator">=</span><span class="token punctuation">{</span> counter <span class="token operator">+=</span> <span class="token number">1</span><span class="token punctuation">;</span> counter <span class="token punctuation">}</span>  
+<span class="token comment">// On this method we are creating a variable of class Example and using </span>
+<span class="token comment">// the object Example. The compiler is very smart, and they know when </span>
+<span class="token comment">// you are using the Class or when you are using the Object. Even if </span>
+<span class="token comment">// they have the same name.</span>
+<span class="token keyword">def</span> newExample<span class="token punctuation">(</span>name<span class="token operator">:</span><span class="token builtin">String</span><span class="token punctuation">)</span> <span class="token operator">=</span> <span class="token keyword">new</span> Example<span class="token punctuation">(</span>Example<span class="token punctuation">.</span>counterPlusOne<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> name<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token keyword">val</span> ro1 <span class="token operator">=</span> Example<span class="token punctuation">.</span>newExample<span class="token punctuation">(</span><span class="token string">"Rui Oliveira 1"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+ro1<span class="token punctuation">.</span>dadNumber<span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token keyword">val</span> ro2 <span class="token operator">=</span> Example<span class="token punctuation">.</span>newExample<span class="token punctuation">(</span><span class="token string">"Rui Oliveira 2"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+ro2<span class="token punctuation">.</span>dadNumber<span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token keyword">val</span> ro3 <span class="token operator">=</span> Example<span class="token punctuation">.</span>newExample<span class="token punctuation">(</span><span class="token string">"Rui Oliveira 3"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+ro3<span class="token punctuation">.</span>dadNumber<span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token comment">// the dadNumber is growing, </span>
+</code></pre>
+      </div>
+<p>Run scala intepretor in the shell (command ‘scala’), and copy-paste this code.</p>
+<p>In scala a class don’t have static methods or variables, what you can do is create a Object with the same name of the class, this object is called <strong>Companion object</strong></p>
+<div class="gatsby-highlight">
+      <pre class="language-scala"><code><span class="token comment">// The class</span>
+<span class="token keyword">class</span> TheClass
+<span class="token comment">// The companion object</span>
+oject TheClass
+<span class="token comment">// PERSONAL NOTE: need intepretor validation</span>
+</code></pre>
+      </div>
+<p><a name="traits"></a></p>
+<h3 id="traits"><a href="#traits" aria-hidden="true" class="anchor"><svg aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Traits</h3>
+<p>A trait is a <strong>tool</strong>, a tool that can be compared to a JAVA interface. With the different
+that you can have method implementations and variable initialization.</p>
+<p>After the compilation, as trait is nothing more that a interface for the JVM.
+So the definitions of the method and variable will be the in the class that uses the trait.</p>
+<p><strong>Creating a Trait</strong></p>
+<div class="gatsby-highlight">
+      <pre class="language-scala"><code><span class="token keyword">trait</span> Person<span class="token punctuation">{</span>
+<span class="token comment">//who use this trait must define a value Name with type String</span>
+<span class="token keyword">val</span> name<span class="token operator">:</span><span class="token builtin">String</span><span class="token punctuation">;</span>
+<span class="token keyword">var</span> nameCounter <span class="token operator">=</span> <span class="token number">0</span>
+<span class="token keyword">def</span> getName<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">:</span><span class="token builtin">String</span> <span class="token operator">=</span> <span class="token punctuation">{</span>
+nameCounter <span class="token operator">+=</span> <span class="token number">1</span>
+<span class="token comment">// value name is the last thing of this block so will be returned </span>
+<span class="token comment">// Keep this in mind, scala don't require return keyword </span>
+name
+<span class="token punctuation">}</span>
+
+<span class="token keyword">def</span> howManyTimesNameWasCalled<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span> nameCounter
+<span class="token punctuation">}</span>
+<span class="token comment">// you can create an object with the same name has the trait</span>
+<span class="token keyword">object</span> Person<span class="token punctuation">{</span>
+  <span class="token comment">// you can variables of a spessfic Trait</span>
+  <span class="token keyword">def</span> testTraitPerson<span class="token punctuation">(</span>p<span class="token operator">:</span>Person<span class="token punctuation">)</span> <span class="token operator">=</span> <span class="token punctuation">{</span>
+println<span class="token punctuation">(</span>p<span class="token punctuation">.</span>howManyTimesNameWasCalled<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+p<span class="token punctuation">.</span>getName<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> p<span class="token punctuation">.</span>getName<span class="token punctuation">(</span><span class="token punctuation">)</span>
+println<span class="token punctuation">(</span>p<span class="token punctuation">.</span>howManyTimesNameWasCalled<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+  <span class="token punctuation">}</span>
+  
+<span class="token punctuation">}</span>
+</code></pre>
+      </div>
+<p><strong>Object using a Trait</strong>, note that we are defining name value.</p>
+<div class="gatsby-highlight">
+      <pre class="language-scala"><code><span class="token keyword">object</span> RuiOliveira <span class="token keyword">extends</span> Person<span class="token punctuation">{</span>
+<span class="token keyword">val</span> name <span class="token operator">=</span> <span class="token string">"rui Oliveira"</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+Person<span class="token punctuation">.</span>testTraitPerson<span class="token punctuation">(</span>RuiOliveira<span class="token punctuation">)</span>
+</code></pre>
+      </div>
+<p>Has you can see a object is a variable that uses Person so it can be used in the testTraitPerson</p>
+<p><strong>Class using a trait</strong>, note that we are declaring value ‘name’ in the constructor parameters.</p>
+<div class="gatsby-highlight">
+      <pre class="language-scala"><code><span class="token keyword">class</span> OtherPerson<span class="token punctuation">(</span><span class="token keyword">val</span> name<span class="token operator">:</span><span class="token builtin">String</span><span class="token punctuation">)</span> <span class="token keyword">extends</span> Person
+
+<span class="token keyword">val</span> p <span class="token operator">=</span> <span class="token keyword">new</span> OtherPerson<span class="token punctuation">(</span><span class="token string">"pedro"</span><span class="token punctuation">)</span>
+Person<span class="token punctuation">.</span>testTraitPerson<span class="token punctuation">(</span>p<span class="token punctuation">)</span>
+</code></pre>
+      </div>
+<p>Has was expected we can use traits in class’s</p>
+<p><strong>Trait on variable</strong>. (Anonymous declaration) </p>
+<div class="gatsby-highlight">
+      <pre class="language-scala"><code><span class="token comment">// Dog are not Persons, so it don't extends to trait Person</span>
+<span class="token keyword">class</span> Dog<span class="token punctuation">(</span><span class="token keyword">val</span> dogName<span class="token operator">:</span><span class="token builtin">String</span><span class="token punctuation">)</span>
+
+<span class="token comment">// but this specialDog are a Person, its type is 'Dog with Person'</span>
+<span class="token keyword">val</span> specialDog<span class="token operator">:</span>Dog <span class="token keyword">with</span> Person <span class="token operator">=</span> <span class="token keyword">new</span> Dog<span class="token punctuation">(</span><span class="token string">"doggy"</span><span class="token punctuation">)</span> <span class="token keyword">with</span> Person <span class="token punctuation">{</span>
+<span class="token keyword">val</span> name <span class="token operator">=</span> dogName<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+Person<span class="token punctuation">.</span>testTraitPerson<span class="token punctuation">(</span>p<span class="token punctuation">)</span>
+</code></pre>
+      </div>
+<p><a name="case-class"></a></p>
+<h3 id="case-class"><a href="#case-class" aria-hidden="true" class="anchor"><svg aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Case Class</h3>
+<p>Case class are a “modification” to normal classes</p>
+<div class="gatsby-highlight">
+      <pre class="language-scala"><code><span class="token comment">// normal class</span>
+<span class="token keyword">class</span> Onwer<span class="token punctuation">(</span> name<span class="token operator">:</span><span class="token builtin">String</span><span class="token punctuation">)</span>
+<span class="token keyword">class</span> Phone<span class="token punctuation">(</span> number<span class="token operator">:</span><span class="token builtin">String</span><span class="token punctuation">,</span>  owner<span class="token operator">:</span>Onwer<span class="token punctuation">)</span>
+<span class="token comment">// case class</span>
+<span class="token keyword">case</span> <span class="token keyword">class</span> Owner2<span class="token punctuation">(</span> name<span class="token operator">:</span><span class="token builtin">String</span><span class="token punctuation">)</span>
+<span class="token keyword">case</span> <span class="token keyword">class</span> Phone2<span class="token punctuation">(</span> number<span class="token operator">:</span><span class="token builtin">String</span><span class="token punctuation">,</span> owner<span class="token operator">:</span>Owner2<span class="token punctuation">)</span>
+</code></pre>
+      </div>
+<p>Creating a case class you will be access:</p>
+<ul>
+<li>default create functions: toString, copy, equal and hashcode.</li>
+<li>class will be immutable by default</li>
+<li>default create singleton object with method unapplay and apply functions</li>
+</ul>
+<p><a name="apply-unapply"></a></p>
+<h3 id="methods-apply-and-unapply"><a href="#methods-apply-and-unapply" aria-hidden="true" class="anchor"><svg aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Methods <code>apply</code> and <code>unapply</code></h3>
+<p>The methods <code>apply</code> and <code>unapply</code> are created in the companion object</p>
+<div class="gatsby-highlight">
+      <pre class="language-scala"><code><span class="token keyword">case</span> <span class="token keyword">class</span> Person<span class="token punctuation">(</span>name<span class="token operator">:</span><span class="token builtin">String</span><span class="token punctuation">)</span>
+
+<span class="token keyword">object</span> Person <span class="token punctuation">{</span>
+  <span class="token comment">// methods create automaticly by case class:</span>
+  <span class="token comment">// def apply(name:String) = new Person(name)</span>
+  <span class="token comment">// def unapply()</span>
+<span class="token punctuation">}</span>
+
+
+<span class="token comment">// NEED intrepretor vadidation</span>
+</code></pre>
+      </div>
+<p>!explain !
+!Here explain the power of unapplay and apply!</p>
+<p><a name="generic-class"></a></p>
+<h3 id="generic-class"><a href="#generic-class" aria-hidden="true" class="anchor"><svg aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Generic Class</h3>
+<h3 id="inner-class-and-object"><a href="#inner-class-and-object" aria-hidden="true" class="anchor"><svg aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Inner Class and Object</h3>
+<p><a name="scala-functional"></a></p>
+<h2 id="scala-as-a-functional-language"><a href="#scala-as-a-functional-language" aria-hidden="true" class="anchor"><svg aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Scala as a Functional language</h2>
+<p>On this section, there will be explained some of the Scala features that are related to Functional World:</p>
+<ul>
+<li>var and val (Mutability and Immutability)</li>
+<li>Lambda functions</li>
+<li>handling collection in a functional way</li>
+<li>implicit things (variable, method and class) </li>
+</ul>
+<p><a name="var-val"></a></p>
+<h3 id="var-and-val"><a href="#var-and-val" aria-hidden="true" class="anchor"><svg aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Var and Val</h3>
+<p>Var and Val keyword can be used to declare objects or in class parameter.</p>
+<p><strong>var</strong> stands for variable
+<strong>val</strong> stands for value</p>
+<div class="gatsby-highlight">
+      <pre class="language-scala"><code><span class="token keyword">var</span> counter <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span>
+<span class="token keyword">val</span> max <span class="token operator">=</span> <span class="token number">100</span><span class="token punctuation">;</span>
+
+<span class="token keyword">while</span><span class="token punctuation">(</span>counter <span class="token operator">&lt;</span> max<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  counter <span class="token operator">+=</span> <span class="token number">1</span><span class="token punctuation">;</span>
+  <span class="token comment">// in scala there aren't ++ operator</span>
+<span class="token punctuation">}</span>
+</code></pre>
+      </div>
+<p>On this example counter variable are being setted multiple times. While if you try to set a new value in the counter, it will gives you a compile error.</p>
+<p>Usage on as a class parameter:</p>
+<div class="gatsby-highlight">
+      <pre class="language-scala"><code><span class="token keyword">class</span> Person<span class="token punctuation">(</span><span class="token keyword">val</span> name<span class="token operator">:</span><span class="token builtin">String</span><span class="token punctuation">,</span> <span class="token keyword">var</span> age<span class="token operator">:</span><span class="token builtin">Int</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">def</span> doBirthdate<span class="token operator">:</span><span class="token builtin">Unit</span> <span class="token operator">=</span> age <span class="token operator">+=</span> <span class="token number">1</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre>
+      </div>
+<p>The parameter name will never got changed while age can be changed.</p>
+<p>Var and Val with class types</p>
+<div class="gatsby-highlight">
+      <pre class="language-scala"><code><span class="token keyword">class</span> Club<span class="token punctuation">(</span><span class="token keyword">val</span> peopleList<span class="token operator">:</span>List<span class="token punctuation">[</span>Person<span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token keyword">val</span> owner<span class="token operator">:</span>Person<span class="token punctuation">)</span>
+</code></pre>
+      </div>
+<p>On this example we have the owner parameter as val, but this don’t mean that we cannot use ‘onwer.doBirthdate’ and change the state of owner.
+When we set a parameter has val, we are telling the compiler that the ‘symbol’ named ‘owner’ will only be setted one time.</p>
+<p>We say that a class is Immutable when all the parameters are ‘val’ and all the parameters Types are also immutable.</p>
+<p><a name="higter-order"></a></p>
+<h3 id="lambda-functions"><a href="#lambda-functions" aria-hidden="true" class="anchor"><svg aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Lambda functions</h3>
+<p>The syntax to create a lambda function are:</p>
+<div class="gatsby-highlight">
+      <pre class="language-scala"><code><span class="token keyword">val</span> f <span class="token operator">=</span> <span class="token punctuation">(</span>x<span class="token operator">:</span><span class="token builtin">Int</span><span class="token punctuation">)</span> <span class="token keyword">=></span> x<span class="token operator">*</span><span class="token number">2</span>
+f<span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">)</span> 
+<span class="token comment">// will give 4</span>
+</code></pre>
+      </div>
+<p>We can receive function as parameter</p>
+<div class="gatsby-highlight">
+      <pre class="language-scala"><code><span class="token keyword">val</span> op1 <span class="token operator">=</span> <span class="token punctuation">(</span>x<span class="token operator">:</span><span class="token builtin">Int</span><span class="token punctuation">,</span> y<span class="token operator">:</span><span class="token builtin">Int</span><span class="token punctuation">)</span> <span class="token keyword">=></span> x <span class="token operator">*</span> <span class="token number">2</span> <span class="token operator">+</span> y
+<span class="token keyword">val</span> f <span class="token operator">=</span> <span class="token punctuation">(</span>x<span class="token operator">:</span><span class="token builtin">Int</span><span class="token punctuation">,</span> y<span class="token operator">:</span><span class="token builtin">Int</span><span class="token punctuation">,</span> op<span class="token operator">:</span> <span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token builtin">Int</span><span class="token punctuation">,</span><span class="token builtin">Int</span><span class="token punctuation">)</span> <span class="token keyword">=></span> <span class="token builtin">Int</span><span class="token punctuation">)</span> <span class="token punctuation">)</span> <span class="token keyword">=></span> op<span class="token punctuation">(</span>x<span class="token punctuation">,</span>y<span class="token punctuation">)</span>
+f<span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token number">3</span><span class="token punctuation">,</span>op1<span class="token punctuation">)</span> 
+<span class="token comment">// will give 7</span>
+</code></pre>
+      </div>
+<p><a name="collections-functions"></a></p>
+<h3 id="collections-functions"><a href="#collections-functions" aria-hidden="true" class="anchor"><svg aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Collections functions</h3>
+<p>To know more Collectons, check the Collection section. On this sub-section I will only
+explain the functinal approuch of the Collections</p>
+<p><strong>Map</strong> Transforming a List into an other list with an operation</p>
+<div class="gatsby-highlight">
+      <pre class="language-scala"><code><span class="token keyword">val</span> l<span class="token operator">:</span>List<span class="token punctuation">[</span><span class="token builtin">Int</span><span class="token punctuation">]</span> <span class="token operator">=</span> List<span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token number">3</span><span class="token punctuation">,</span><span class="token number">4</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">val</span> op <span class="token operator">=</span> <span class="token punctuation">(</span>x<span class="token operator">:</span><span class="token builtin">Int</span><span class="token punctuation">)</span> <span class="token keyword">=></span> x <span class="token operator">*</span> <span class="token number">2</span>
+<span class="token comment">// running the operation 'op' over each element </span>
+<span class="token keyword">val</span> l2<span class="token operator">:</span>List<span class="token punctuation">[</span><span class="token builtin">Int</span><span class="token punctuation">]</span> <span class="token operator">=</span> l<span class="token punctuation">.</span>map<span class="token punctuation">(</span>op<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment">// l2 will have: List(2,4,6,8)</span>
+<span class="token comment">// l1 will keep the List(1,2,3,4)</span>
+</code></pre>
+      </div>
+<p>With some systatix sugar (which i’m gooing to explain in [ref section3]).
+We can simplie write</p>
+<div class="gatsby-highlight">
+      <pre class="language-scala"><code><span class="token keyword">val</span> l<span class="token operator">:</span>List<span class="token punctuation">[</span><span class="token builtin">Int</span><span class="token punctuation">]</span> <span class="token operator">=</span> List<span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token number">3</span><span class="token punctuation">,</span><span class="token number">4</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">val</span> l2<span class="token operator">:</span>List<span class="token punctuation">[</span><span class="token builtin">Int</span><span class="token punctuation">]</span> <span class="token operator">=</span> l<span class="token punctuation">.</span>map<span class="token punctuation">(</span><span class="token punctuation">{</span> x <span class="token keyword">=></span> x <span class="token operator">*</span> <span class="token number">2</span><span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">val</span> l3<span class="token operator">:</span>List<span class="token punctuation">[</span><span class="token builtin">Int</span><span class="token punctuation">]</span> <span class="token operator">=</span> l<span class="token punctuation">.</span>map<span class="token punctuation">{</span> x <span class="token keyword">=></span> x <span class="token operator">*</span> <span class="token number">2</span><span class="token punctuation">}</span><span class="token punctuation">;</span>
+<span class="token keyword">val</span> l4<span class="token operator">:</span>List<span class="token punctuation">[</span><span class="token builtin">Int</span><span class="token punctuation">]</span> <span class="token operator">=</span> l<span class="token punctuation">.</span>map<span class="token punctuation">(</span>x <span class="token keyword">=></span> x <span class="token operator">*</span> <span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">val</span> l5<span class="token operator">:</span>List<span class="token punctuation">[</span><span class="token builtin">Int</span><span class="token punctuation">]</span> <span class="token operator">=</span> l<span class="token punctuation">.</span>map<span class="token punctuation">(</span>_ <span class="token operator">*</span> <span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment">// l2, l3, l4, l5 are exatly the same</span>
+</code></pre>
+      </div>
+<p>** Filter ** will select some elements</p>
+<div class="gatsby-highlight">
+      <pre class="language-scala"><code><span class="token keyword">val</span> l<span class="token operator">:</span>List<span class="token punctuation">[</span><span class="token builtin">Int</span><span class="token punctuation">]</span> <span class="token operator">=</span> List<span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token number">3</span><span class="token punctuation">,</span><span class="token number">4</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">val</span> l2 <span class="token operator">=</span> l<span class="token punctuation">.</span>map<span class="token punctuation">(</span>x <span class="token keyword">=></span> x <span class="token operator">*</span> <span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">.</span>filter<span class="token punctuation">(</span>x <span class="token keyword">=></span> x <span class="token operator">></span> <span class="token number">5</span><span class="token punctuation">)</span><span class="token punctuation">.</span>map<span class="token punctuation">(</span>x <span class="token keyword">=></span> x <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">)</span>
+<span class="token comment">// 1º map result List(2,4,6,8)</span>
+<span class="token comment">// 2º filter result List(6,8)</span>
+<span class="token comment">// final result List(7,8)</span>
+</code></pre>
+      </div>
+<p>** Useful functions ** there are many useful functions over collections.
+<put here some examples></p>
+<p>** reduce ** will transform a list[A] into an A, this method assumes that the List,
+are not empty.</p>
+<div class="gatsby-highlight">
+      <pre class="language-scala"><code><span class="token comment">// Lets see the reduce signure:</span>
+<span class="token keyword">def</span> reduce<span class="token punctuation">[</span>A1 <span class="token operator">></span><span class="token operator">:</span> A<span class="token punctuation">]</span><span class="token punctuation">(</span>op<span class="token operator">:</span> <span class="token punctuation">(</span>A1<span class="token punctuation">,</span> A1<span class="token punctuation">)</span> ⇒ A1<span class="token punctuation">)</span><span class="token operator">:</span> A1
+<span class="token comment">// ...</span>
+<span class="token keyword">val</span> l<span class="token operator">:</span>List<span class="token punctuation">[</span><span class="token builtin">Int</span><span class="token punctuation">]</span> <span class="token operator">=</span> List<span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token number">3</span><span class="token punctuation">,</span><span class="token number">4</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+l<span class="token punctuation">.</span>reduce<span class="token punctuation">{</span> <span class="token punctuation">(</span>a<span class="token punctuation">,</span>b<span class="token punctuation">)</span> <span class="token keyword">=></span> a <span class="token operator">+</span> b <span class="token punctuation">}</span>
+<span class="token comment">// will give 9</span>
+List<span class="token punctuation">[</span><span class="token builtin">Int</span><span class="token punctuation">]</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span>reduce<span class="token punctuation">{</span> <span class="token punctuation">(</span>a<span class="token punctuation">,</span>b<span class="token punctuation">)</span> <span class="token keyword">=></span> a <span class="token operator">+</span> b <span class="token punctuation">}</span>
+<span class="token comment">// empty list will throw excepton!!</span>
+</code></pre>
+      </div>
+<p>** foldRight and foldLeft ** is like reduce, but more useful.</p>
+<div class="gatsby-highlight">
+      <pre class="language-scala"><code><span class="token comment">// Lets see the signures:</span>
+<span class="token keyword">def</span> foldRight<span class="token punctuation">[</span>B<span class="token punctuation">]</span><span class="token punctuation">(</span>z<span class="token operator">:</span> B<span class="token punctuation">)</span><span class="token punctuation">(</span>op<span class="token operator">:</span> <span class="token punctuation">(</span>A<span class="token punctuation">,</span> B<span class="token punctuation">)</span> ⇒ B<span class="token punctuation">)</span><span class="token operator">:</span> B
+<span class="token comment">// will produce something like 'op(x_1, op(x_2, ... op(x_n, z)...))'</span>
+<span class="token keyword">def</span> foldLeft<span class="token punctuation">[</span>B<span class="token punctuation">]</span><span class="token punctuation">(</span>z<span class="token operator">:</span> B<span class="token punctuation">)</span><span class="token punctuation">(</span>f<span class="token operator">:</span> <span class="token punctuation">(</span>B<span class="token punctuation">,</span> A<span class="token punctuation">)</span> ⇒ B<span class="token punctuation">)</span><span class="token operator">:</span> B
+<span class="token comment">// will produce something like 'op(...op(z, x_1), x_2, ..., x_n)'</span>
+</code></pre>
+      </div>
+<p>With the fold we can transform a list into objects, example:</p>
+<div class="gatsby-highlight">
+      <pre class="language-scala"><code><span class="token keyword">val</span> l<span class="token operator">:</span>List<span class="token punctuation">[</span><span class="token builtin">Int</span><span class="token punctuation">]</span> <span class="token operator">=</span> List<span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token number">3</span><span class="token punctuation">,</span><span class="token number">4</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+l<span class="token punctuation">.</span>foldLeft<span class="token punctuation">(</span><span class="token string">"0"</span><span class="token punctuation">)</span><span class="token punctuation">{</span><span class="token punctuation">(</span>z<span class="token operator">:</span><span class="token builtin">String</span><span class="token punctuation">,</span> i<span class="token operator">:</span><span class="token builtin">Int</span><span class="token punctuation">)</span> <span class="token keyword">=></span> z <span class="token operator">+</span> <span class="token string">","</span> <span class="token operator">+</span>  i<span class="token punctuation">.</span>toString <span class="token punctuation">}</span>
+<span class="token comment">// will produce 0,1,2,3,4</span>
+<span class="token comment">// op(op(op(op("0", 1), 2 ), 3), 4)</span>
+</code></pre>
+      </div>
+<div class="gatsby-highlight">
+      <pre class="language-scala"><code><span class="token keyword">val</span> l<span class="token operator">:</span>List<span class="token punctuation">[</span><span class="token builtin">Int</span><span class="token punctuation">]</span> <span class="token operator">=</span> List<span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token number">3</span><span class="token punctuation">,</span><span class="token number">4</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+l<span class="token punctuation">.</span>foldRight<span class="token punctuation">(</span><span class="token string">"0"</span><span class="token punctuation">)</span><span class="token punctuation">{</span><span class="token punctuation">(</span>i<span class="token operator">:</span><span class="token builtin">Int</span><span class="token punctuation">,</span> z<span class="token operator">:</span><span class="token builtin">String</span><span class="token punctuation">)</span> <span class="token keyword">=></span> z <span class="token operator">+</span> <span class="token string">","</span> <span class="token operator">+</span> i<span class="token punctuation">.</span>toString  <span class="token punctuation">}</span>
+<span class="token comment">// will produce 0,4,3,2,1</span>
+<span class="token comment">// op(1,op(2,op(3,op(4,"0"))))</span>
+</code></pre>
+      </div>
+<p><a name="-implicit-variable"></a></p>
+<h3 id="implicit-variable"><a href="#implicit-variable" aria-hidden="true" class="anchor"><svg aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Implicit Variable</h3>
+<p>Implicit variables are a mechanism to avoid always be passing some variable into a function, normally this is very useful on recursive functions.</p>
+<div class="gatsby-highlight">
+      <pre class="language-scala"><code><span class="token comment">// also on this example we are using Scala string processing</span>
+<span class="token keyword">def</span> f<span class="token punctuation">(</span>name<span class="token operator">:</span><span class="token builtin">String</span><span class="token punctuation">)</span><span class="token punctuation">(</span><span class="token keyword">implicit</span> location<span class="token operator">:</span><span class="token builtin">String</span><span class="token punctuation">)</span> <span class="token operator">=</span> s<span class="token string">"hello $name, you are at $location"</span>
+<span class="token keyword">implicit</span>  <span class="token keyword">val</span> l <span class="token operator">=</span> <span class="token string">"lisbon"</span>
+f<span class="token punctuation">(</span><span class="token string">"rui"</span><span class="token punctuation">)</span>
+<span class="token comment">// will give 'hello rui, you are at lisbon'</span>
+f<span class="token punctuation">(</span><span class="token string">"rui"</span><span class="token punctuation">)</span><span class="token punctuation">(</span><span class="token string">"porto"</span><span class="token punctuation">)</span>
+<span class="token comment">// will give 'hello rui, you are at porto'</span>
+</code></pre>
+      </div>
+<p>The value l is been declared as implicit of type String, when ever its needed a Implicit String the value l will be used.</p>
+<p>We can import implicit variable and use in other context:</p>
+<div class="gatsby-highlight">
+      <pre class="language-scala"><code><span class="token keyword">object</span> o1<span class="token punctuation">{</span> <span class="token keyword">implicit</span> <span class="token keyword">val</span> i <span class="token operator">=</span> <span class="token number">500</span><span class="token punctuation">}</span>
+<span class="token keyword">def</span> f<span class="token punctuation">(</span><span class="token keyword">implicit</span> h<span class="token operator">:</span><span class="token builtin">Int</span><span class="token punctuation">)</span> <span class="token operator">=</span> h <span class="token operator">*</span> <span class="token number">2</span>
+<span class="token comment">// importing the variable i</span>
+<span class="token keyword">import</span> o1<span class="token punctuation">.</span>_
+<span class="token comment">// we are calling the function f (no parentheses need)</span>
+<span class="token comment">// and with the result call toString</span>
+printf<span class="token punctuation">(</span>f<span class="token punctuation">.</span>toString<span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre>
+      </div>
+<p>Also we can have more than one variable as implicit input:</p>
+<div class="gatsby-highlight">
+      <pre class="language-scala"><code><span class="token keyword">def</span> f<span class="token punctuation">(</span>i<span class="token operator">:</span><span class="token builtin">Int</span><span class="token punctuation">)</span><span class="token punctuation">(</span><span class="token keyword">implicit</span> k<span class="token operator">:</span><span class="token builtin">Int</span><span class="token punctuation">,</span> s<span class="token operator">:</span><span class="token builtin">String</span><span class="token punctuation">)</span><span class="token operator">:</span><span class="token builtin">String</span> <span class="token operator">=</span> i <span class="token keyword">match</span> <span class="token punctuation">{</span>
+  <span class="token keyword">case</span> <span class="token number">0</span> <span class="token keyword">=></span> s <span class="token operator">+</span> k
+  <span class="token keyword">case</span> _ <span class="token keyword">=></span> f<span class="token punctuation">(</span>i <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+<span class="token keyword">implicit</span> <span class="token keyword">val</span> i <span class="token operator">=</span> <span class="token number">100</span><span class="token punctuation">;</span>
+<span class="token keyword">implicit</span> <span class="token keyword">val</span> i <span class="token operator">=</span> <span class="token string">"i has "</span><span class="token punctuation">;</span>
+f<span class="token punctuation">(</span><span class="token number">50</span><span class="token punctuation">)</span>
+</code></pre>
+      </div>
+<p><a name="-implicit-method"></a></p>
+<h3 id="implicit-method"><a href="#implicit-method" aria-hidden="true" class="anchor"><svg aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Implicit Method</h3>
+<p>Implicit methods are used to convert a variable into other</p>
+<p><a name="-implicit-class"></a></p>
+<h3 id="implicit-class"><a href="#implicit-class" aria-hidden="true" class="anchor"><svg aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Implicit Class</h3>
+<p>Implicit class are used to lay methods in certain types</p>
+<p><a name="scala-script"></a></p>
+<h2 id="scala-as-a-script-language"><a href="#scala-as-a-script-language" aria-hidden="true" class="anchor"><svg aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Scala as a Script language</h2>
+<p>WARNING: Not writed yet
+TODO: write this topic.</p>
+<p><a name="type-inference"></a></p>
+<h3 id="type-inference"><a href="#type-inference" aria-hidden="true" class="anchor"><svg aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Type Inference</h3>
+<p>WARNING: Not writed yet
+TODO: write this topic.</p>
+<p><a name="syntax-sugar"></a></p>
+<h3 id="syntax-sugar"><a href="#syntax-sugar" aria-hidden="true" class="anchor"><svg aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Syntax Sugar</h3>
+<p>WARNING: Not writed yet
+TODO: write this topic.</p>
+<!---
+
+# ,"#scala-concurrency":{"title":"Scala Concurrency","sub":{"#futures-promises":{"title":"Futures and Promises"},"#todo":{"title":"todo: add topics here"}}},"#scala-reflection":{"title":"Scala Reflection","sub":{"#universe":{"title":"Universe"},"#todo2":{"title":"Add something here"}}},"#scala-macros":{"title":"Scala Macros","sub":{"#whitebox-blackbox":{"title":"Whitebox and blackbox macros"},"#annotations-macros":{"title":"Annotations Macros"}}},"#scala-xml":{"title":"Scala XML"},"#scala-string":{"title":"Scala String Processing"}   }
+ 
+# <a name="scala-cool"></a>
+# ## Scala as a cool language
+#
+# WARNING: Not writed yet
+# TODO: write this topic.
+# 
+# <a name="scala-concurrency"></a>
+# ### Scala Concurrency
+# 
+# WARNING: Not writed yet
+# TODO: write this topic.
+# 
+# <a name="futures-promises"></a>
+# #### Futures and Promises
+# 
+# WARNING: Not writed yet
+# TODO: write this topic.
+# 
+# <a name="todo"></a>
+# #### @todo: add topics here
+# 
+# WARNING: Not writed yet
+# TODO: write this topic.
+# 
+# <a name="scala-reflection"></a>
+# ### Scala Reflection
+# 
+# WARNING: Not writed yet
+# TODO: write this topic.
+# 
+# <a name="universe"></a>
+# #### Universe
+# 
+# WARNING: Not writed yet
+# TODO: write this topic.
+# 
+# <a name="todo2"></a>
+# #### Add something here
+# 
+# WARNING: Not writed yet
+# TODO: write this topic.
+# 
+# <a name="scala-macros"></a>
+# ### Scala Macros
+# 
+# WARNING: Not writed yet
+# TODO: write this topic.
+# 
+# <a name="whitebox-blackbox"></a>
+# #### Whitebox and blackbox macros
+# 
+# WARNING: Not writed yet
+# TODO: write this topic.
+# 
+# <a name="annotations-macros"></a>
+# #### Annotations Macros
+# 
+# WARNING: Not writed yet
+# TODO: write this topic.
+# 
+# <a name="scala-xml"></a>
+# ### Scala XML
+# 
+# WARNING: Not writed yet
+# TODO: write this topic.
+# 
+# <a name="scala-string"></a>
+# ### Scala String Processing
+# 
+# WARNING: Not writed yet
+# TODO: write this topic.
+# 
+-->   </div><hr class="sc-hMqMXs gSdWKa"/></div><a class="sc-ckVGcZ fpYxkK" title="Scala Language Tutorial" href="/"><span class="sc-kkGfuU dVEktx"><svg fill="currentColor" preserveAspectRatio="xMidYMid meet" height="1em" width="1em" viewBox="0 0 40 40" class="sc-kEYyzF iHsYxQ" style="vertical-align:middle"><g><path d="m11.6 11.6h23.4v3.4h-23.4v-3.4z m0 16.8v-3.4h23.4v3.4h-23.4z m0-6.8v-3.2h23.4v3.2h-23.4z m-6.6-6.6v-3.4h3.4v3.4h-3.4z m0 13.4v-3.4h3.4v3.4h-3.4z m0-6.8v-3.2h3.4v3.2h-3.4z"></path></g></svg>All posts</span></a></section></div><footer class="sc-ifAKCX SZdRx"><div class="sc-bxivhb jCCrki" width="240px" color="rgba(255, 255, 255, 0.6)"><div class="button sc-bwzfXH kulSxP" width="240px" color="rgba(255, 255, 255, 0.6)"><a class="button sc-htpNat infYH" target="_blank" rel="noopener" href="https://github.com/DSchau" width="240px" color="rgba(255, 255, 255, 0.6)"><svg fill="currentColor" preserveAspectRatio="xMidYMid meet" height="32" width="32" viewBox="0 0 40 40" style="vertical-align:middle"><g><path d="m20.1 2.9q4.7 0 8.6 2.3t6.3 6.2 2.3 8.6q0 5.6-3.3 10.1t-8.4 6.2q-0.6 0.1-0.9-0.2t-0.3-0.7q0 0 0-1.7t0-3q0-2.1-1.2-3.1 1.3-0.2 2.3-0.4t2.1-0.9 1.8-1.5 1.2-2.3 0.5-3.4q0-2.7-1.8-4.6 0.8-2-0.2-4.5-0.6-0.2-1.8 0.2t-2 1l-0.9 0.5q-2-0.6-4.3-0.6t-4.2 0.6q-0.4-0.2-1-0.6t-1.9-0.8-1.9-0.3q-1 2.5-0.1 4.5-1.8 1.9-1.8 4.6 0 1.9 0.5 3.4t1.1 2.3 1.8 1.5 2.1 0.9 2.3 0.4q-0.9 0.8-1.1 2.3-0.4 0.2-1 0.3t-1.3 0.1-1.4-0.5-1.3-1.4q-0.4-0.7-1-1.1t-1.1-0.6l-0.5 0q-0.5 0-0.6 0.1t-0.1 0.2 0.2 0.3 0.2 0.3l0.2 0.1q0.5 0.2 1 0.9t0.7 1.1l0.2 0.5q0.3 0.9 1 1.4t1.5 0.7 1.5 0.1 1.3-0.1l0.5 0q0 0.8 0 1.9t0 1.2q0 0.5-0.3 0.7t-0.9 0.2q-5.2-1.7-8.4-6.2t-3.3-10.1q0-4.7 2.3-8.6t6.2-6.2 8.6-2.3z m-10.6 24.6q0.1-0.2-0.2-0.3-0.2-0.1-0.2 0.1-0.1 0.1 0.1 0.2 0.2 0.2 0.3 0z m0.7 0.7q0.1-0.1-0.1-0.3-0.2-0.2-0.3-0.1-0.2 0.1 0 0.4 0.3 0.2 0.4 0z m0.7 1q0.2-0.1 0-0.4-0.2-0.3-0.4-0.1-0.2 0.1 0 0.4t0.4 0.1z m0.9 1q0.2-0.2-0.1-0.4-0.3-0.3-0.4-0.1-0.2 0.2 0 0.4 0.3 0.3 0.5 0.1z m1.3 0.5q0-0.2-0.3-0.3-0.4-0.1-0.4 0.1t0.2 0.4q0.4 0.1 0.5-0.2z m1.4 0.1q0-0.2-0.4-0.2-0.4 0-0.4 0.2 0 0.3 0.4 0.3 0.4 0 0.4-0.3z m1.3-0.2q-0.1-0.2-0.4-0.2-0.4 0.1-0.3 0.4t0.4 0.1 0.3-0.3z"></path></g></svg></a></div><div class="button sc-bwzfXH kulSxP" width="240px" color="rgba(255, 255, 255, 0.6)"><a class="button sc-htpNat infYH" target="_blank" rel="noopener" href="https://twitter.com/schaudustin" width="240px" color="rgba(255, 255, 255, 0.6)"><svg fill="currentColor" preserveAspectRatio="xMidYMid meet" height="32" width="32" viewBox="0 0 40 40" style="vertical-align:middle"><g><path d="m37.7 9.1q-1.5 2.2-3.7 3.7 0.1 0.3 0.1 1 0 2.9-0.9 5.8t-2.6 5.5-4.1 4.7-5.7 3.3-7.2 1.2q-6.1 0-11.1-3.3 0.8 0.1 1.7 0.1 5 0 9-3-2.4-0.1-4.2-1.5t-2.6-3.5q0.8 0.1 1.4 0.1 1 0 1.9-0.3-2.5-0.5-4.1-2.5t-1.7-4.6v0q1.5 0.8 3.3 0.9-1.5-1-2.4-2.6t-0.8-3.4q0-2 0.9-3.7 2.7 3.4 6.6 5.4t8.3 2.2q-0.2-0.9-0.2-1.7 0-3 2.1-5.1t5.1-2.1q3.2 0 5.3 2.3 2.4-0.5 4.6-1.7-0.8 2.5-3.2 3.9 2.1-0.2 4.2-1.1z"></path></g></svg></a></div><div class="button sc-bwzfXH kulSxP" width="240px" color="rgba(255, 255, 255, 0.6)"><a class="button sc-htpNat infYH" target="_blank" rel="noopener" href="https://www.facebook.com/profile.php?id=100004599014794" width="240px" color="rgba(255, 255, 255, 0.6)"><svg fill="currentColor" preserveAspectRatio="xMidYMid meet" height="32" width="32" viewBox="0 0 40 40" style="vertical-align:middle"><g><path d="m30.9 2.9q2.6 0 4.5 1.8t1.9 4.6v21.4q0 2.7-1.9 4.6t-4.5 1.8h-4.2v-13.2h4.4l0.7-5.2h-5.1v-3.3q0-1.3 0.5-1.9t2-0.6l2.8 0v-4.7q-1.5-0.2-4-0.2-3.1 0-4.9 1.8t-1.8 5.1v3.8h-4.5v5.2h4.5v13.2h-11.9q-2.6 0-4.5-1.8t-1.9-4.6v-21.4q0-2.7 1.9-4.6t4.5-1.8h21.5z"></path></g></svg></a></div></div></footer></main></div></div><script id="webpack-manifest">/*<![CDATA[*/window.webpackManifest={"231608221292675":"app-b57d7d73b9c30def67f8.js","99219681209289":"component---node-modules-gatsby-plugin-offline-app-shell-js-5c4c5a0f7af9dc69d6d7.js","50739212244294":"component---src-templates-tags-js-9d72829700ea91784455.js","107818501498521":"component---src-templates-blog-post-js-f6d6f8c1af0210f18cae.js","162898551421021":"component---src-pages-404-js-25bec15972c7c8ef912d.js","35783957827783":"component---src-pages-index-js-99db0ab19dbbb9a7d121.js","60335399758886":"path----557518bd178906f8d58a.js","210333531512890":"path---offline-plugin-app-shell-fallback-a0e39f21c11f6a62c5ab.js","55702396619907":"path---tags-3a99282c4999ac4bef87.js","128450838024984":"path---tags-about-f387ff9fc75ab9225222.js","261462356566171":"path---tags-pinned-c301f45c972aa0fd55a4.js","280791712670875":"path---example-post-110c1c6ff2c6019b3dea.js","242329255839005":"path---web-summit-2016-8dc1b1ce0b7f364a5aae.js","94639164971244":"path---scala-4301beb2e8621fc182a1.js","273950069227526":"path---about-7240ef12466117dc4eb3.js","77625194191171":"path---java-9-overview-b2e2485bac25f3559545.js","254022195166212":"path---404-a0e39f21c11f6a62c5ab.js","142629428675168":"path---index-92b2f45f2391f2f0dea8.js","178698757827068":"path---404-html-a0e39f21c11f6a62c5ab.js","114276838955818":"component---src-layouts-index-js-bfa8dcea545c1855da41.js","67604419171931":"webfontloader-7e2893ef542a12a5c720.js","16355028499350":"@dschau/particles.js-044bda3a24f6e96d36f1.js"}/*]]>*/</script><script>
+  
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-102928446-2', 'auto');
+  </script><script>/*<![CDATA[*/!function(e,t,r){function n(){for(;d[0]&&"loaded"==d[0][f];)c=d.shift(),c[o]=!i.parentNode.insertBefore(c,i)}for(var s,a,c,d=[],i=e.scripts[0],o="onreadystatechange",f="readyState";s=r.shift();)a=e.createElement(t),"async"in i?(a.async=!1,e.head.appendChild(a)):i[f]?(d.push(a),a[o]=n):e.write("<"+t+' src="'+s+'" defer></'+t+">"),a.src=s}(document,"script",["/commons-988ff8a34a4e50b6c778.js","/app-b57d7d73b9c30def67f8.js","/path---scala-4301beb2e8621fc182a1.js","/component---src-templates-blog-post-js-f6d6f8c1af0210f18cae.js","/component---src-layouts-index-js-bfa8dcea545c1855da41.js"])/*]]>*/</script></body></html>
