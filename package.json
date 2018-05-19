@@ -61,6 +61,7 @@
   "license": "MIT",
   "main": "n/a",
   "scripts": {
+    "deploy": "gatsby build && gh-pages -d public",
     "build": "cross-env NODE_ENV=production gatsby build --prefix-paths",
     "clean": "del-cli \"public/**/*\" \".cache/**/*\"",
     "develop": "npm run start",
