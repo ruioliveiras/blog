@@ -3,7 +3,8 @@ module.exports = {
   siteMetadata: {
     title: `Rui Oliveiras - Blog`,
     author: `Rui Oliveiras`,
-    siteUrl: `http://ruioliveiras.com`
+    siteUrl: `http://ruioliveiras.com`,
+    description: 'This is my personal blog, with posts about <b>Scala</b>, Java, JVM and <b>Software Architecture</b>.'
   },
   plugins: [
     {
@@ -62,6 +63,59 @@ module.exports = {
       options: {
         trackingId: 'UA-102928446-2'
       }
-    }    
+    },
+    {
+      resolve: `gatsby-plugin-feed`,
+      options: {
+        query: `
+          {
+            site {
+              siteMetadata {
+                title
+                description
+                siteUrl
+                site_url: siteUrl
+              }
+            }
+          }
+        `,
+        feeds: [
+          {
+            serialize: ({ query: { site, allMarkdownRemark } }) => {
+              return allMarkdownRemark.edges.map(edge => {
+                return Object.assign({}, edge.node.frontmatter, {
+                  description: edge.node.excerpt,
+                  url: site.siteMetadata.siteUrl + edge.node.frontmatter.path,
+                  guid: site.siteMetadata.siteUrl + edge.node.frontmatter.path,
+                  custom_elements: [{ "content:encoded": edge.node.html }],
+                });
+              });
+            },
+            query: `
+              {
+                allMarkdownRemark(
+                  limit: 1000,
+                  sort: { order: DESC, fields: [frontmatter___date] },
+                  filter: {frontmatter: { draft: { ne: true } }}
+                ) {
+                  edges {
+                    node {
+                      excerpt
+                      html
+                      frontmatter {
+                        path
+                        title
+                        date
+                      }
+                    }
+                  }
+                }
+              }
+            `,
+            output: "/rss.xml",
+          },
+        ],
+      },
+    },
   ],
 }
