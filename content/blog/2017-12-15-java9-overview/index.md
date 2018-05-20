@@ -2,7 +2,8 @@
 path: /java9-overview
 date: '2017-12-15T23:36:56.503Z'
 title: Java 9 Overview
-tags: []
+tags: 
+  - "Scala, Java & JVM"
 excerpt: Java 9 had released at September 2017. On this post you will found a global overview of the changes, and some useful links.
 draft: false
 ---

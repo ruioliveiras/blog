@@ -2,9 +2,10 @@ import React from 'react'
 import styled from 'styled-components'
 
 import GithubIcon from 'react-icons/lib/fa/github'
-import FacebookIcon from 'react-icons/lib/fa/facebook-square'
+import InstagramIcon from 'react-icons/lib/fa/instagram'
 import HomeIcon from 'react-icons/lib/fa/home'
 import TwitterIcon from 'react-icons/lib/fa/twitter'
+import FlickrIcon from  'react-icons/lib/fa/flickr'
 
 const Container = styled.div`
   display: flex;
@@ -31,17 +32,6 @@ const ExternalLink = props => {
 }
 
 const Types = {
-  facebook(props) {
-    return (
-      <ExternalLink
-        hoverColor="#3b5998"
-        href="https://www.facebook.com/profile.php?id=100004599014794"
-        {...props}
-      >
-        <FacebookIcon size={32} />
-      </ExternalLink>
-    )
-  },
   git(props) {
     return (
       <ExternalLink
@@ -64,16 +54,27 @@ const Types = {
       </ExternalLink>
     )
   },
-  twitter(props) {
+  instagram(props) {
     return (
       <ExternalLink
         hoverColor="#1da1f2"
-        href="https://twitter.com"
+        href="https://www.instagram.com/ruioliveiras/"
         {...props}
       >
-        <TwitterIcon size={32} />
+        <InstagramIcon size={32} />
       </ExternalLink>
-    )
+    )    
+  },
+  flickr(props) {
+    return (
+      <ExternalLink
+        hoverColor="#1da1f2"
+        href="https://www.flickr.com/photos/152270513@N04"
+        {...props}
+      >
+        <FlickrIcon size={32} />
+      </ExternalLink>
+    )    
   }
 }
 

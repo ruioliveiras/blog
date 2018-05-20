@@ -2,7 +2,8 @@
 path: /scala
 date: '2017-01-15T23:36:56.503Z'
 title: 'Scala Language Tutorial'
-tags: []
+tags: 
+  - "Scala, Java & JVM"
 excerpt: '<p>I will start with some generic concepts <b>Mutability and Immutability</b> and <b>Singleton object</b> that are not specific of the scala language.</p>
 
 <p>Next, I have separated the main features in 3 Charters:  <b>Scala as a Object Oriented Language</b>, <b>Scala as a Functional language</b>, <b>Scala as a Script language</b>. 

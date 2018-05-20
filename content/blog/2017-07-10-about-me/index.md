@@ -3,11 +3,10 @@ path: /about
 date: '2017-07-10T23:36:56.503Z'
 title: About
 tags:
-  - about
   - pinned
 image: ui-and-code.png
 excerpt: This is my personal blog, with posts about <b>Scala</b>, Java, JVM and <b>Software Architecture</b>.
-         </p> Check my <b><a href="/cv.pdf">Curriculum Vitae</a></b></p>
+         </p> Check my <b><a href="/cv.pdf">Curriculum Vitae</a></b>, see <b><a href="/tags">posts by topic</a></b></p>
 draft: false
 ---
 **Hi my name is Rui Oliveiras,**

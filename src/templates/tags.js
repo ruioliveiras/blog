@@ -72,7 +72,7 @@ export default function Tags({ pathContext }) {
   }
   return (
     <TagsContainer>
-      <TagHeader text="All tags" />
+      <TagHeader text="Topics List:" />
       <List>
         {tags.map(name => {
           return (

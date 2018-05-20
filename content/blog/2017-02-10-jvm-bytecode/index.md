@@ -1,6 +1,6 @@
 ---
 path: /jvm-bytecode
-date: '2017-02-10T23:36:56.503Z'
+date: '2017-01-10T23:36:56.503Z'
 title: JVM Bytecode
 tags:
   - "Scala, Java & JVM"

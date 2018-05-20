@@ -67,11 +67,10 @@ export default function About() {
       <Image src={me} />
       <Details>
         <Name>
-          Rui <Last>Oliveira</Last>
+          Rui <Last>Oliveiras</Last>
         </Name>
         <Description>
-          Backend development is my passion, and I am incredibly lucky to be
-          able to <strong>love</strong> what I do each and every day.
+        This is my personal blog, with posts about <b>Scala</b>, Java, JVM and <b>Software Architecture</b>
         </Description>
       </Details>
       <SocialIcons />

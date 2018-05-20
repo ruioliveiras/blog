@@ -21,8 +21,8 @@ export default function Social(props) {
   return (
     <SocialContainer {...props}>
       <SocialButton className="button" type="git" {...props} />
-      <SocialButton className="button" type="twitter" {...props} />
-      <SocialButton className="button" type="facebook" {...props} />
+      <SocialButton className="button" type="instagram" {...props} />
+      <SocialButton className="button" type="flickr" {...props} />
     </SocialContainer>
   )
 }
