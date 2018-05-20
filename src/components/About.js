@@ -67,10 +67,10 @@ export default function About() {
       <Image src={me} />
       <Details>
         <Name>
-          Dustin <Last>Schau</Last>
+          Rui <Last>Oliveira</Last>
         </Name>
         <Description>
-          Front-end development is my passion, and I am incredibly lucky to be
+          Backend development is my passion, and I am incredibly lucky to be
           able to <strong>love</strong> what I do each and every day.
         </Description>
       </Details>

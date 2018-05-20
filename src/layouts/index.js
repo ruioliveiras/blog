@@ -39,7 +39,7 @@ export default class Template extends React.Component {
             {
               name: 'description',
               content:
-                'My personal blog, backend developer and architecture, Rui Oliveira'
+                'My personal blog, backend developer and architecture, Rui Oliveiras'
             },
             {
               name: 'keywords',

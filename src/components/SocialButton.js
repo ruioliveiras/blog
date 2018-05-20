@@ -46,7 +46,7 @@ const Types = {
     return (
       <ExternalLink
         hoverColor="#333333"
-        href="https://github.com/DSchau"
+        href="https://github.com/ruioliveiras"
         {...props}
       >
         <GithubIcon size={32} />
@@ -57,7 +57,7 @@ const Types = {
     return (
       <ExternalLink
         hoverColor="#fff"
-        href="https://www.dustinschau.com"
+        href="http://ruioliveiras.com"
         {...props}
       >
         <HomeIcon size={32} />
@@ -68,7 +68,7 @@ const Types = {
     return (
       <ExternalLink
         hoverColor="#1da1f2"
-        href="https://twitter.com/schaudustin"
+        href="https://twitter.com"
         {...props}
       >
         <TwitterIcon size={32} />

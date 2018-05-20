@@ -1,16 +1,17 @@
 module.exports = {
   pathPrefix: `/`,
   siteMetadata: {
-    title: `Dustin Schau - Blog`,
-    author: `Dustin Schau`,
+    title: `Rui Oliveiras - Blog`,
+    author: `Rui Oliveiras`,
+    siteUrl: `http://ruioliveiras.com`
   },
   plugins: [
     {
       resolve: 'gatsby-plugin-manifest',
       options: {
-        name: `Dustin Schau's Blog`,
-        description: 'The blog of the developer, Dustin Schau',
-        short_name: 'DSchau Blog',
+        name: `Rui Oliveiras Blog`,
+        description: 'Scala, Java, JVM and Software Architectures',
+        short_name: 'Rui OLiveiras',
         background_color: 'white',
         theme_color: '#002635',
         orientation: 'portrait',
@@ -27,6 +28,13 @@ module.exports = {
       options: {
         path: `${__dirname}/content/blog`,
         name: 'posts',
+      },
+    },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        path: `${__dirname}/content/files`,
+        name: 'files',
       },
     },
     {
@@ -54,6 +62,6 @@ module.exports = {
       options: {
         trackingId: 'UA-102928446-2'
       }
-    }
+    }    
   ],
 }

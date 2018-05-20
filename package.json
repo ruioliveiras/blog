@@ -3,7 +3,7 @@
   "description": "Dustin Schau's personal blog",
   "version": "1.0.0",
   "private": true,
-  "author": "Dustin Schau <dustinschau@gmail.com>",
+  "author": "Rui Oliveira <rui96pedro@gmail.com>",
   "dependencies": {
     "@dschau/particles.js": "2.0.0",
     "gatsby": "1.9.255",
@@ -51,7 +51,7 @@
   "license": "MIT",
   "main": "n/a",
   "scripts": {
-    "deploy": "gatsby build && gh-pages -d public",
+    "deploy": "gatsby build && cp -r content/files/* public && gh-pages -d public",
     "build": "cross-env NODE_ENV=production gatsby build --prefix-paths",
     "clean": "del-cli \"public/**/*\" \".cache/**/*\"",
     "develop": "npm run start",

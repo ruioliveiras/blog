@@ -100,7 +100,7 @@ class BlogHeader extends Component {
 
   componentDidMount() {
     this.setState({
-      showBackButton: document.referrer.match('dustinschau')
+      showBackButton: document.referrer.match('ruioliveira')
     })
 
     require.ensure(
@@ -125,7 +125,7 @@ class BlogHeader extends Component {
       <Header id="blog-header" {...this.props}>
         {showBackButton &&
           <BackContainer>
-            <NavigationButton to="https://www.dustinschau.com" absolute prev target="_self">
+            <NavigationButton to="http://ruioliveiras.com" absolute prev target="_self">
               Back to Home
             </NavigationButton>
           </BackContainer>}

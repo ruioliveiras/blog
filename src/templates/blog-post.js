@@ -59,7 +59,7 @@ export default function BlogPost({ data = {}, location, pathContext }) {
     },
     {
       name: `twitter:creator`,
-      content: `schaudustin`
+      content: `ruioliveira`
     },
     {
       name: `author`,
@@ -94,7 +94,7 @@ export default function BlogPost({ data = {}, location, pathContext }) {
 
   return (
     <Container>
-      <Helmet title={`Dustin Schau - ${post.frontmatter.title}`} meta={meta} />
+      <Helmet title={`Rui Oliveira - ${post.frontmatter.title}`} meta={meta} />
       <Post
         className="blog-post"
         html={post.html}
