@@ -8,6 +8,10 @@
       "@dschau/particles.js-044bda3a24f6e96d36f1.js",
       "@dschau/particles.js-044bda3a24f6e96d36f1.js.map"
     ],
+    "path---api-gateway": [
+      "path---api-gateway-73fb8e1c5b60aa23c431.js",
+      "path---api-gateway-73fb8e1c5b60aa23c431.js.map"
+    ],
     "component---src-pages-index-js": [
       "component---src-pages-index-js-f10154724d596f143704.js",
       "component---src-pages-index-js-f10154724d596f143704.js.map"
@@ -29,8 +33,8 @@
       "webfontloader-7e2893ef542a12a5c720.js.map"
     ],
     "path---java-9-overview": [
-      "path---java-9-overview-b3be8b45526c2f00adb0.js",
-      "path---java-9-overview-b3be8b45526c2f00adb0.js.map"
+      "path---java-9-overview-e683b2dce49b2928854a.js",
+      "path---java-9-overview-e683b2dce49b2928854a.js.map"
     ],
     "path---scala": [
       "path---scala-6a9397e7e145b883e8f1.js",
@@ -49,8 +53,8 @@
       "component---src-layouts-index-js-346be2a9e8553dce1ede.js.map"
     ],
     "path---index": [
-      "path---index-88ba8ec2bc77a8424cfd.js",
-      "path---index-88ba8ec2bc77a8424cfd.js.map"
+      "path---index-6cb94effddb0efbcbabf.js",
+      "path---index-6cb94effddb0efbcbabf.js.map"
     ],
     "component---src-pages-404-js": [
       "component---src-pages-404-js-4cdb04ff563d109e0831.js",
@@ -71,9 +75,9 @@
       "path---offline-plugin-app-shell-fallback-a0e39f21c11f6a62c5ab.js.map"
     ],
     "app": [
-      "app-21c9cea1deb9bf4f8c0a.js",
+      "app-117f37bcb7fa0dee84f0.js",
       "build-js-styles.css",
-      "app-21c9cea1deb9bf4f8c0a.js.map",
+      "app-117f37bcb7fa0dee84f0.js.map",
       "build-js-styles.css.map"
     ],
     "path---tags-scala-java-jvm": [

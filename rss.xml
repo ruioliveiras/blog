@@ -1,4 +1,215 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Rui Oliveiras - Blog]]></title><description><![CDATA[This is my personal blog, with posts about <b>Scala</b>, Java, JVM and <b>Software Architecture</b>.]]></description><link>http://ruioliveiras.com</link><generator>RSS for Node</generator><lastBuildDate>Mon, 21 May 2018 21:50:56 GMT</lastBuildDate><item><title><![CDATA[Java 9 Overview]]></title><description><![CDATA[Overview over java9 Java 9 had released at September 2017. On this post you will found a global overview of the changes, and some useful…]]></description><link>http://ruioliveiras.com/java9-overview</link><guid isPermaLink="false">http://ruioliveiras.com/java9-overview</guid><pubDate>Fri, 15 Dec 2017 23:36:56 GMT</pubDate><content:encoded>&lt;h1 id=&quot;overview-over-java9&quot;&gt;&lt;a href=&quot;#overview-over-java9&quot; aria-hidden=&quot;true&quot; class=&quot;anchor&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Overview over java9&lt;/h1&gt;
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Rui Oliveiras - Blog]]></title><description><![CDATA[This is my personal blog, with posts about <b>Scala</b>, Java, JVM and <b>Software Architecture</b>.]]></description><link>http://ruioliveiras.com</link><generator>RSS for Node</generator><lastBuildDate>Mon, 21 May 2018 21:54:14 GMT</lastBuildDate><item><title><![CDATA[Designing an Api Gateway with authentication and authorization]]></title><description><![CDATA[Motivation Authentication and authorization may be a problem in a micro service environment. 
+If every micro service has its own…]]></description><link>http://ruioliveiras.com/api-gateway</link><guid isPermaLink="false">http://ruioliveiras.com/api-gateway</guid><pubDate>Thu, 15 Feb 2018 23:36:56 GMT</pubDate><content:encoded>&lt;h2 id=&quot;motivation&quot;&gt;&lt;a href=&quot;#motivation&quot; aria-hidden=&quot;true&quot; class=&quot;anchor&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Motivation&lt;/h2&gt;
+&lt;p&gt;Authentication and authorization may be a problem in a micro service environment.
+If every micro service has its own authentication and authorization, you end up
+with multiple services doing the same thing, and perhaps with different implementations.&lt;/p&gt;
+&lt;p&gt;The cleanest way of doing it is with a service dedicated to authentication and authorization, I’m going to call this service the &lt;strong&gt;bouncer service&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Abstract:&lt;/strong&gt;&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;a href=&quot;#concept-map&quot;&gt;Concept map - the problem domain&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href=&quot;#high-level-implementation&quot;&gt;High level implementation&lt;/a&gt;&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;a href=&quot;#problems&quot;&gt;Identified implementation problems&lt;/a&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href=&quot;#implemetation&quot;&gt;Implementation&lt;/a&gt;&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;a href=&quot;#flow-new-request-comes&quot;&gt; Flow: new ‘http request’ comes&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;#new-micro-service&quot;&gt; Registration of a new micro-service&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;#extract-auth-resource&quot;&gt; Extract ‘auth resources’ from http request&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;#data-storage&quot;&gt; Store data in Couchbase&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;#care-about-your-developer&quot;&gt;Easy to use in Development Environment&lt;/a&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;a name=&quot;concept-map&quot;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&quot;concept-map---the-problem-domain&quot;&gt;&lt;a href=&quot;#concept-map---the-problem-domain&quot; aria-hidden=&quot;true&quot; class=&quot;anchor&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Concept map - the problem domain&lt;/h2&gt;
+&lt;p&gt;
+  &lt;span
+    class=&quot;gatsby-resp-image-wrapper&quot;
+    style=&quot;position: relative; display: block; ; max-width: 650px; margin-left: auto; margin-right: auto;&quot;
+  &gt;
+    &lt;span
+      class=&quot;gatsby-resp-image-background-image&quot;
+      style=&quot;padding-bottom: 46.324549237170594%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAJCAIAAAC9o5sfAAAACXBIWXMAAAsSAAALEgHS3X78AAAA+klEQVQoz3WRyW6EMBBE/f//xyUjgQCbTeCFHUNCnrAGRdFQB2O3q11VjaiqKkmS1+ur67p1XbcL8zxrrbM8S9NsGAbv/foHP2+Itm37vjfGTNP0/cZxHJCstVzxFpXAPs8zHM8LwjnHJ1z8A5pQw35ZFryUZSmVVErh11r3uZkjVpWSdV1vm0fK9U7rLs+zOImlzHloP47PzbCJbbTBOXHQN1oTDf2iUGQJzh9t796naVoUJRYCgZ4kiaMoimPEJeKC0lPm+QLNKDM/LDRNQxB7gaIgOhf4gXRPe993KuM40sz+fIBggDxJP9QgwkoFR2G9Bx4M3v8M/AITPQhAf/2vVQAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;
+    &gt;
+      &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        style=&quot;width: 100%; height: 100%; margin: 0; vertical-align: middle; position: absolute; top: 0; left: 0; box-shadow: inset 0px 0px 0px 400px white;&quot;
+        alt=&quot;text&quot;
+        title=&quot;&quot;
+        src=&quot;/static/domain-diagram-b9c59f26524b5be82f676d8953e90f72-83a8b.png&quot;
+        srcset=&quot;/static/domain-diagram-b9c59f26524b5be82f676d8953e90f72-8992e.png 163w,
+/static/domain-diagram-b9c59f26524b5be82f676d8953e90f72-ae0a7.png 325w,
+/static/domain-diagram-b9c59f26524b5be82f676d8953e90f72-83a8b.png 650w,
+/static/domain-diagram-b9c59f26524b5be82f676d8953e90f72-28f5c.png 721w&quot;
+        sizes=&quot;(max-width: 650px) 100vw, 650px&quot;
+      /&gt;
+    &lt;/span&gt;
+  &lt;/span&gt;
+  &lt;/p&gt;
+&lt;p&gt;Example of instantiation:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Resource1&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Resource2&lt;/strong&gt; with levels: admin, lvl1, actions, reports&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Role1&lt;/strong&gt; has Resource1, resource2(lvl1)&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Role2&lt;/strong&gt; has Resource1, resource2(lvl1, reports)&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Role3&lt;/strong&gt; has Resource1, resource2(lvl1, actions)&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Role4&lt;/strong&gt; has Resource1, resource2(admin)&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;User1&lt;/strong&gt; has role2&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;User2&lt;/strong&gt; has role3&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;User3&lt;/strong&gt; has role2 and role3&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;The &lt;strong&gt;user3&lt;/strong&gt; has the resource2 with levels lv1, actions and reports&lt;/p&gt;
+&lt;p&gt;&lt;a name=&quot;high-level-implementation&quot;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&quot;high-level-implementation&quot;&gt;&lt;a href=&quot;#high-level-implementation&quot; aria-hidden=&quot;true&quot; class=&quot;anchor&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;High level implementation&lt;/h2&gt;
+&lt;p&gt;
+  &lt;span
+    class=&quot;gatsby-resp-image-wrapper&quot;
+    style=&quot;position: relative; display: block; ; max-width: 650px; margin-left: auto; margin-right: auto;&quot;
+  &gt;
+    &lt;span
+      class=&quot;gatsby-resp-image-background-image&quot;
+      style=&quot;padding-bottom: 48.0392156862745%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAKCAIAAAA7N+mxAAAACXBIWXMAAAsSAAALEgHS3X78AAABOUlEQVQoz1WS2ZKCMBBF/f+vG30RQWsYBwwmLCFRQBaZQ1LKeB9STbpPL2k25/PZGPN4PNq25ayqSimV5zmGNQYjd5/W2qIocietNZHzPG+4HccR6/l8csJkWQav65p0Ssp3tNZLXgQyO2085oXd9/3tpQVW6urka5ZlSaVpmlb4v/D5lianruuEuERRdDqdwjBM03QYRl9mgQnFnS66MBM+D/uIpmn6fvBJ6cVaQ8/3+32tXGud/CZx/ENXtOpHAmYEGHjSDcOANwgC6pPlo23c70ngIcGOx2i3RV+77a4sKxgpJc/2UZnoSmuueiftbGBs1iPl1RiLLYQID4f4O6aFFSafyIRSkg7LomBVFyHabll7ucCSaF7O1LV0m/OPslb2YjD/t5DFr6RxarsOV5IkexTsb6+2/wDrDzseazjZ5gAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;
+    &gt;
+      &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        style=&quot;width: 100%; height: 100%; margin: 0; vertical-align: middle; position: absolute; top: 0; left: 0; box-shadow: inset 0px 0px 0px 400px white;&quot;
+        alt=&quot;text&quot;
+        title=&quot;&quot;
+        src=&quot;/static/high-level-c4bcd4736c2379945f3239a932bd89af-83a8b.png&quot;
+        srcset=&quot;/static/high-level-c4bcd4736c2379945f3239a932bd89af-8992e.png 163w,
+/static/high-level-c4bcd4736c2379945f3239a932bd89af-ae0a7.png 325w,
+/static/high-level-c4bcd4736c2379945f3239a932bd89af-83a8b.png 650w,
+/static/high-level-c4bcd4736c2379945f3239a932bd89af-282b5.png 714w&quot;
+        sizes=&quot;(max-width: 650px) 100vw, 650px&quot;
+      /&gt;
+    &lt;/span&gt;
+  &lt;/span&gt;
+  &lt;/p&gt;
+&lt;p&gt;&lt;a name=&quot;problems&quot;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;h3 id=&quot;identified-implementation-problems&quot;&gt;&lt;a href=&quot;#identified-implementation-problems&quot; aria-hidden=&quot;true&quot; class=&quot;anchor&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Identified implementation problems&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;When we receive an Http Request, what flow should we have ? &lt;a href=&quot;#flow-new-request-comes&quot;&gt;Answer&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;How can the Bouncer service know all the micro-services and what resources does it have ? &lt;a href=&quot;#new-micro-service&quot;&gt;Answer&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;How can we extract the required resources from an Http request ? &lt;a href=&quot;#extract-auth-resource&quot;&gt;Answer&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;How can we store our data model ? &lt;a href=&quot;#data-storage&quot;&gt;Answer&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Should the micro services communicate between than ? Or should they use the Service Bouncer? To be answered in the future post!&lt;/li&gt;
+&lt;li&gt;Forcing differents teams, perhaps with different technologies, to use the Service bouncer may be a problem. What care should we take to be easy to use in development environment? &lt;a href=&quot;#care-about-your-developer&quot;&gt;Answer&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;a name=&quot;implementation&quot;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&quot;implementation&quot;&gt;&lt;a href=&quot;#implementation&quot; aria-hidden=&quot;true&quot; class=&quot;anchor&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Implementation&lt;/h2&gt;
+&lt;p&gt;&lt;a name=&quot;flow-new-request-comes&quot;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;h3 id=&quot;flow-new-request-comes&quot;&gt;&lt;a href=&quot;#flow-new-request-comes&quot; aria-hidden=&quot;true&quot; class=&quot;anchor&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Flow new request comes&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;The request arrives to the system&lt;/li&gt;
+&lt;li&gt;The request is &lt;strong&gt;authenticated&lt;/strong&gt; (convert the jwt, into the user)    &lt;/li&gt;
+&lt;li&gt;The http path is processed to:
+1. Extract the micro service we want to reach.
+2. &lt;a href=&quot;#extract-auth-resource&quot;&gt;Extract the resource in that request&lt;/a&gt; we want to use.&lt;/li&gt;
+&lt;li&gt;We know the user, the micro-service and the resource.&lt;/li&gt;
+&lt;li&gt;Now we can process all the information to perform &lt;strong&gt;Authorization&lt;/strong&gt;
+1.1. The answer could be negative
+1.2. Or Positive
+1.2. Or Positive, but with conditions (levels of access)  &lt;/li&gt;
+&lt;li&gt;The request is forwarded to the micro service, with levels of access.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;a name=&quot;new-micro-service&quot;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;h3 id=&quot;registration-of-a-new-micro-service&quot;&gt;&lt;a href=&quot;#registration-of-a-new-micro-service&quot; aria-hidden=&quot;true&quot; class=&quot;anchor&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Registration of a new micro-service&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;When a new micro service launches, it should have a configured end point to reach the bouncer service.&lt;/li&gt;
+&lt;li&gt;And the new micro service will send, to the bouncer service, something like this to register itself: &lt;/li&gt;
+&lt;/ol&gt;
+&lt;div class=&quot;gatsby-highlight&quot;&gt;
+      &lt;pre class=&quot;language-json&quot;&gt;&lt;code&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+   &lt;span class=&quot;token property&quot;&gt;&quot;name&quot;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&quot;name-of-example1&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+   &lt;span class=&quot;token property&quot;&gt;&quot;version&quot;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&quot;v0.0.1&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+   &lt;span class=&quot;token property&quot;&gt;&quot;forwardHost&quot;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&quot;api-internal.example1.com&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+   &lt;span class=&quot;token property&quot;&gt;&quot;paths&quot;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+	 &lt;span class=&quot;token property&quot;&gt;&quot;GET:/path1/&quot;&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+	 	&lt;span class=&quot;token property&quot;&gt;&quot;require&quot;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&quot;resource1&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;
+	 &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+	 &lt;span class=&quot;token property&quot;&gt;&quot;POST:/path1/&quot;&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+	 	&lt;span class=&quot;token property&quot;&gt;&quot;require&quot;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&quot;resource1&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;
+	 &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+	 &lt;span class=&quot;token property&quot;&gt;&quot;GET:/path1/:ID&quot;&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+	 	&lt;span class=&quot;token property&quot;&gt;&quot;require&quot;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&quot;resource1&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;resource2&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;
+	 &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+   &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+   &lt;span class=&quot;token property&quot;&gt;&quot;resources&quot;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;
+   	 &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;token property&quot;&gt;&quot;code&quot;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&quot;resource1&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token property&quot;&gt;&quot;levels&quot;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&quot;level1&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;level2&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;level3&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+   	 &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;token property&quot;&gt;&quot;code&quot;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&quot;resource2&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+   &lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;
+
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+      &lt;/div&gt;
+&lt;p&gt;With the version it should be possible to &lt;strong&gt;run multiple versions at a time&lt;/strong&gt;, and the bouncer service could have special behaviours to handle multiple versions. This feature could facilitate &lt;a href=&quot;https://martinfowler.com/bliki/BlueGreenDeployment.html&quot;&gt;blue-green deploys&lt;/a&gt;. &lt;/p&gt;
+&lt;p&gt;All paths are declared and mapped to resources. So that, when the service bouncer receives the request:
+&lt;code&gt;GET &amp;#x3C;host&gt;/path1/125&lt;/code&gt; it knows that it &lt;strong&gt;requires&lt;/strong&gt;: &lt;code&gt;resource1&lt;/code&gt; and &lt;code&gt;resource2&lt;/code&gt;.
+So it will search if the authorized user has access it.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;if the user doesn’t have access to it, the request will not be forwarded.&lt;/li&gt;
+&lt;li&gt;if the user has access to it, the request will be forwarded, adding in to the http headers the &lt;em&gt;level&lt;/em&gt; of resource1. &lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;a name=&quot;extract-auth-resource&quot;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;h3 id=&quot;extract-auth-resources-from-http-request&quot;&gt;&lt;a href=&quot;#extract-auth-resources-from-http-request&quot; aria-hidden=&quot;true&quot; class=&quot;anchor&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Extract ‘auth resources’ from http request&lt;/h3&gt;
+&lt;p&gt;The service bouncer could create a suffix tree of all paths in the infrastructure, &lt;a href=&quot;https://en.wikipedia.org/wiki/Suffix_tree&quot;&gt;Suffix tree&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Something like this:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot;&gt;
+      &lt;pre class=&quot;language-none&quot;&gt;&lt;code&gt;&quot;path1/&quot;
+   -&gt; &lt;endPath&gt; 
+          -&gt; GET  {fullPath: GET:path1, requires:[&quot;resource1&quot;]}
+   -&gt; &lt;endPath&gt; 
+           -&gt; POST {fullPath: POST:path1, requires:[&quot;resource1&quot;]}
+   -&gt; &lt;anyIntValue&gt; 
+          -&gt; &lt;endPath&gt; 
+                 -&gt; GET {fullPpath: POST:path1/:id, requires:[&quot;resource1&quot;, &quot;resource2&quot;]}&lt;/code&gt;&lt;/pre&gt;
+      &lt;/div&gt;
+&lt;p&gt;The information stored in the leaf of that tree could store the required &lt;strong&gt;resources&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;Knowing this, the Bouncer service will extract from the http headers the resources it requires.
+The Http request will only be forwarded to the micro service if the actual user has access to the resources. &lt;/p&gt;
+&lt;p&gt;&lt;a name=&quot;data-storage&quot;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;h3 id=&quot;store-data-in-couchbase&quot;&gt;&lt;a href=&quot;#store-data-in-couchbase&quot; aria-hidden=&quot;true&quot; class=&quot;anchor&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Store data in Couchbase&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;First authentication:
+The request will arrive to the Bouncer Service with a &lt;a href=&quot;https://jwt.io/introduction/&quot;&gt;Json web token (JWT)&lt;/a&gt;.
+Using the secret we will guarantee that it is a valid token.
+OR
+We could use the old fashioned RANDOM TOKEN that maps the database to the userId.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;After having a valid user id, we can search in the couchbase for the key &lt;code&gt;p:$user1&lt;/code&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Now we search all the roles of that user, example &lt;code&gt;r:role1&lt;/code&gt; and &lt;code&gt;r:role2&lt;/code&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Then we know all the resources and levels for that user.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Since the resource was already &lt;a href=&quot;#extract-auth-resource&quot;&gt;parsed bellow&lt;/a&gt;,
+we know everything to authorize and forward this request.   &lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h4 id=&quot;couchbase-keys&quot;&gt;&lt;a href=&quot;#couchbase-keys&quot; aria-hidden=&quot;true&quot; class=&quot;anchor&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Couchbase keys&lt;/h4&gt;
+&lt;div class=&quot;gatsby-highlight&quot;&gt;
+      &lt;pre class=&quot;language-none&quot;&gt;&lt;code&gt;p:$userId =&gt; {&quot;roles&quot;:[&quot;role1&quot;, &quot;role2&quot;]}
+
+r:$roleCode =&gt; {&quot;resources&quot;:{&quot;resource1&quot;:{&quot;with&quot;:[&quot;level1&quot;]}, &quot;resource2&quot;:{}}}&lt;/code&gt;&lt;/pre&gt;
+      &lt;/div&gt;
+&lt;p&gt;&lt;a name=&quot;care-about-your-developer&quot;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;h3 id=&quot;easy-to-use-in-development-environment&quot;&gt;&lt;a href=&quot;#easy-to-use-in-development-environment&quot; aria-hidden=&quot;true&quot; class=&quot;anchor&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Easy to use in Development Environment&lt;/h3&gt;
+&lt;p&gt;There are multiple differents things to do:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Distribute the Service Bouncer inside a docker (You can use also have the couchbase inside a docker).&lt;/li&gt;
+&lt;li&gt;Have SDK for your different languages&lt;/li&gt;
+&lt;li&gt;Create good error messages, that can provide you real information.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;It is not difficult to create easy to use systems, but you should keep this in mind when you build something that is going to be used by multiples teams.&lt;/p&gt;</content:encoded></item><item><title><![CDATA[Java 9 Overview]]></title><description><![CDATA[Overview over java9 Java 9 had released at September 2017. On this post you will found a global overview of the changes, and some useful…]]></description><link>http://ruioliveiras.com/java9-overview</link><guid isPermaLink="false">http://ruioliveiras.com/java9-overview</guid><pubDate>Fri, 15 Dec 2017 23:36:56 GMT</pubDate><content:encoded>&lt;h1 id=&quot;overview-over-java9&quot;&gt;&lt;a href=&quot;#overview-over-java9&quot; aria-hidden=&quot;true&quot; class=&quot;anchor&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Overview over java9&lt;/h1&gt;
 &lt;p&gt;Java 9 had released at September 2017. On this post you will found a global overview of the changes, and some useful links. &lt;/p&gt;
 &lt;p&gt;&lt;a href=&quot;https://docs.oracle.com/javase/9/whatsnew/toc.html&quot;&gt;Complete change log - from Oracle&lt;/a&gt;&lt;/p&gt;
 &lt;h2 id=&quot;minor-changes&quot;&gt;&lt;a href=&quot;#minor-changes&quot; aria-hidden=&quot;true&quot; class=&quot;anchor&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Minor changes&lt;/h2&gt;
