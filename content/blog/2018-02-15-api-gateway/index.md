@@ -4,7 +4,7 @@ date: '2018-02-15T23:36:56.503Z'
 title: Designing an Api Gateway with authentication and authorization
 tags: []
 excerpt: ''
-draft: true
+draft: false
 ---
 
 ## Motivation
