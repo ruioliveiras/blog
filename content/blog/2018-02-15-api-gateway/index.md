@@ -1,7 +1,7 @@
 ---
 path: /api-gateway
 date: '2018-02-15T23:36:56.503Z'
-title: Designing a Api Gateway with authentication and authorization
+title: Designing an Api Gateway with authentication and authorization
 tags: []
 excerpt: ''
 draft: true
@@ -9,7 +9,7 @@ draft: true
 
 ## Motivation
 Authentication and authorization may be a problem in a micro service environment. 
-If every micro services has its own authentication and authorization, you end up 
+If every micro service has its own authentication and authorization, you end up 
 with multiple services doing the same thing, and perhaps with different implementations.
 
 The cleanest way of doing it is with a service dedicated to authentication and authorization, I'm going to call this service the **bouncer service**.
@@ -53,10 +53,10 @@ $ grafico de high level implementation
 
 ### Identified implementation problems
 
-- When we receive a Http Request, how what flow we should have ? [Awnser](#flow-new-request-comes)
-- How can the Boucer service knows all the micro-services and what resources it has ? [Awnser](#new-micro-service)
-- How can we extract from Http request the required resources ? [Awnser](#extract-auth-resource)
-- How can we store the our data model ? [Awnser](#data-storage)
+- When we receive an Http Request, what flow should we have ? [Answer](#flow-new-request-comes)
+- How can the Bouncer service know all the micro-services and what resources does it have ? [Answer](#new-micro-service)
+- How can we extract the required resources from an Http request ? [Answer](#extract-auth-resource)
+- How can we store our data model ? [Answer](#data-storage)
 
 <a name="implementation"></a>
 
@@ -66,25 +66,25 @@ $ grafico de high level implementation
 
 ### Flow new request comes
  
- 1. The request come to the system
+ 1. The request arrives to the system
  2. The request is **authenticated** (convert the jwt, into the user)    
  2. The http path is processed to: 
- 		1. Extract the service want to rich.
- 		2. [Extract the resource in that request](#extract-auth-resource) want to use.
+ 		1. Extract the micro service we want to reach.
+ 		2. [Extract the resource in that request](#extract-auth-resource) we want to use.
  2. We know the user, the micro-service and the resource.
- 2. Now we can process the all the information to do **Authorization**
+ 2. Now we can process all the information to perform **Authorization**
  	1.1. The answer could be negative
  	1.2. Or Positive
  	1.2. Or Positive, but with conditions (levels of access)  
- 3. The request is forwarded to the to the micro-service, with the levels of access.  
+ 3. The request is forwarded to the micro service, with levels of access.
 
 
 <a name="new-micro-service"></a>
 
 ### Registration of a new micro-service
 
-1. When a new micro-service start, it should have configured a end point to rich the bouncer service.
-2. And the new micro-service will send to the bouncer service something like this to register thanself: 
+1. When a new micro service launches, it should have a configured end point to reach the bouncer service.
+2. And the new micro service will send, to the bouncer service, something like this to register itself: 
 
 ~~~json   
 {
@@ -110,13 +110,13 @@ $ grafico de high level implementation
 }
 ~~~
 
-With the version would be possible to **run multiple versions at time**, and the bouncer-service could have special behaviour to handle multiple versions. This feature could facilitate [blue-green deploys](https://martinfowler.com/bliki/BlueGreenDeployment.html). 
+With the version it should be possible to **run multiple versions at a time**, and the bouncer service could have special behaviours to handle multiple versions. This feature could facilitate [blue-green deploys](https://martinfowler.com/bliki/BlueGreenDeployment.html). 
 
-All paths are declared and mapped to resources. So that, when the service bouncer receive the request:
-`GET <host>/path1/125` it know that it **requires**: `resource1` and `resource2`. 
-So will search if the authorized user has it.
- - if the user doesn't have, the request will not be forwarded.
- - if the user has, will forward and add in the http headers the *level* of resource1. 
+All paths are declared and mapped to resources. So that, when the service bouncer receives the request:
+`GET <host>/path1/125` it knows that it **requires**: `resource1` and `resource2`. 
+So it will search if the authorized user has access it.
+ - if the user doesn't have access to it, the request will not be forwarded.
+ - if the user has access to it, the request will be forwarded, adding in to the http headers the *level* of resource1. 
 
 <a name="extract-auth-resource"></a>
 
@@ -137,10 +137,10 @@ Something like this:
                  -> GET {fullPpath: POST:path1/:id, requires:["resource1", "resource2"]}
 ~~~~
 
-The information stored in leaf of that tree could store the required **resources**.
+The information stored in the leaf of that tree could store the required **resources**.
 
-Knowing this, the Bouncer service will extract from the http resource what resources it requires.
-The Http request only be forwarded to the Micro-service it the actual user has the resources. 
+Knowing this, the Bouncer service will extract from the http headers the resources it requires.
+The Http request will only be forwarded to the micro service if the actual user has access to the resources. 
 
 <a name="data-storage"></a>
 
@@ -148,13 +148,13 @@ The Http request only be forwarded to the Micro-service it the actual user has t
 
 1. First authentication:
  The request will arrive to the Bouncer Service with a [Json web token (JWT)](https://jwt.io/introduction/).
-  Using the secret we will certify that is a valid token.
+  Using the secret we will guarantee that it is a valid token.
      OR
-   We could use the old fashon RANDOM TOKEN that maps the database to the userId.
+   We could use the old fashioned RANDOM TOKEN that maps the database to the userId.
 
 2. After having a valid user id, we can search in the couchbase for the key `p:$user1`
-3. Now search all the roles of that user, example `r:role1` and `r:role2`
-4. Now we know all the resources and levels for that user.
+3. Now we search all the roles of that user, example `r:role1` and `r:role2`
+4. Then we know all the resources and levels for that user.
 5. Since the resource was already [parsed bellow](#extract-auth-resource),
    we know everything to authorize and forward this request.   
 
