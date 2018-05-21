@@ -57,6 +57,9 @@ $ grafico de high level implementation
 - How can the Bouncer service know all the micro-services and what resources does it have ? [Answer](#new-micro-service)
 - How can we extract the required resources from an Http request ? [Answer](#extract-auth-resource)
 - How can we store our data model ? [Answer](#data-storage)
+- Should the micro services communicate between than ? Or should they use the Service Bouncer? To be answered in the future post!
+- Forcing differents teams, perhaps with different technologies, to use the Service bouncer may be a problem. What care should we take to be easy to use in development environment? [Answer](#care-about-your-developer)
+
 
 <a name="implementation"></a>
 
@@ -164,3 +167,14 @@ p:$userId => {"roles":["role1", "role2"]}
 
 r:$roleCode => {"resources":{"resource1":{"with":["level1"]}, "resource2":{}}}
 ~~~~
+
+<a name="care-about-your-developer"></a>
+### Easy to use in Development Environment
+
+There are multiple differents things to do:
+
+- Distribute the Service Bouncer inside a docker (You can use also have the couchbase inside a docker).
+- Have SDK for your different languages
+- Create good error messages, that can provide you real information.
+
+It is not difficult to create easy to use systems, but you should keep this in mind when you build something that is going to be used by multiples teams.
