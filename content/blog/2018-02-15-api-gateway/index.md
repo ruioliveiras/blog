@@ -53,7 +53,10 @@ $ grafico de high level implementation
 
 ### Identified implementation problems
 
-- How can 
+- When we receive a Http Request, how what flow we should have ? [Awnser](#flow-new-request-comes)
+- How can the Boucer service knows all the micro-services and what resources it has ? [Awnser](#new-micro-service)
+- How can we extract from Http request the required resources ? [Awnser](#extract-auth-resource)
+- How can we store the our data model ? [Awnser](#data-storage)
 
 <a name="implementation"></a>
 
@@ -65,15 +68,15 @@ $ grafico de high level implementation
  
  1. The request come to the system
  2. The request is **authenticated** (convert the jwt, into the user)    
- 2. The http path is processed to extract: 
- 		1. The service want to rich.
- 		2. the resource in that service want to use.
- 2. We know the user, the service and the resource.
+ 2. The http path is processed to: 
+ 		1. Extract the service want to rich.
+ 		2. [Extract the resource in that request](#extract-auth-resource) want to use.
+ 2. We know the user, the micro-service and the resource.
  2. Now we can process the all the information to do **Authorization**
  	1.1. The answer could be negative
- 	1.2. Positive
- 	1.2. Positive, but with conditions (levels of access)   
- 3. The request is forwarded to the to the service, with the levels of access and all the meta-info.  
+ 	1.2. Or Positive
+ 	1.2. Or Positive, but with conditions (levels of access)  
+ 3. The request is forwarded to the to the micro-service, with the levels of access.  
 
 
 <a name="new-micro-service"></a>
@@ -115,8 +118,6 @@ So will search if the authorized user has it.
  - if the user doesn't have, the request will not be forwarded.
  - if the user has, will forward and add in the http headers the *level* of resource1. 
 
-
-
 <a name="extract-auth-resource"></a>
 
 ### Extract 'auth resources' from http request
@@ -128,40 +129,33 @@ Something like this:
 ~~~~
 "path1/"
    -> <endPath> 
-          -> GET 
+          -> GET  {fullPath: GET:path1, requires:["resource1"]}
    -> <endPath> 
-           -> POST
-   -> <anyValue> 
+           -> POST {fullPath: POST:path1, requires:["resource1"]}
+   -> <anyIntValue> 
           -> <endPath> 
-                 -> GET
+                 -> GET {fullPpath: POST:path1/:id, requires:["resource1", "resource2"]}
 ~~~~
 
+The information stored in leaf of that tree could store the required **resources**.
 
-The meta information of each leaf could be something like this:
-~~~~json
-{
-	"serviceName":"service1"
-	"require":["resource1", "resource2"]
-}
-~~~~
-
-Knowing this the Bouncer service will knows to what micro-service it should forward, and what resources it need to check.
-The request only be forwarded if the actual user has the resources.  
+Knowing this, the Bouncer service will extract from the http resource what resources it requires.
+The Http request only be forwarded to the Micro-service it the actual user has the resources. 
 
 <a name="data-storage"></a>
 
 ### Store data in Couchbase
 
-1. First we authentication 
- The request will arrive to the Bouncer service with a [Json web token (JWT)](https://jwt.io/introduction/).
+1. First authentication:
+ The request will arrive to the Bouncer Service with a [Json web token (JWT)](https://jwt.io/introduction/).
   Using the secret we will certify that is a valid token.
      OR
-   We could use the old RANDOM token that maps the database to the userId.
+   We could use the old fashon RANDOM TOKEN that maps the database to the userId.
 
-2. After having a valid user id, we can search in the couchbase for the key `p:user1`
-3. Now search all the roles `r:role1` and `r:role2`
+2. After having a valid user id, we can search in the couchbase for the key `p:$user1`
+3. Now search all the roles of that user, example `r:role1` and `r:role2`
 4. Now we know all the resources and levels for that user.
-5. Since the resource was already [parsed bellow](#parse-resources-fom-path),
+5. Since the resource was already [parsed bellow](#extract-auth-resource),
    we know everything to authorize and forward this request.   
 
 #### Couchbase keys
