@@ -30,7 +30,7 @@ The cleanest way of doing it is with a service dedicated to authentication and a
 
 ## Concept map - the problem domain 
 
-$the image
+![text](./domain-diagram.png)
 
 Example of instantiation:
 - **Resource1**
@@ -49,7 +49,7 @@ The **user3** has the resource2 with levels lv1, actions and reports
 
 ## High level implementation
 
-$ grafico de high level implementation
+![text](./high-level.png)
 
 <a name="problems"></a>
 
