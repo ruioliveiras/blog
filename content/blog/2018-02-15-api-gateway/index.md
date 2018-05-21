@@ -23,6 +23,8 @@ The cleanest way of doing it is with a service dedicated to authentication and a
     1. [ Registration of a new micro-service](#new-micro-service)
     1. [ Extract 'auth resources' from http request](#extract-auth-resource)
     1. [ Store data in Couchbase](#data-storage)
+    1. [Easy to use in Development Environment](#care-about-your-developer)
+
 
 <a name="concept-map"></a>
 
