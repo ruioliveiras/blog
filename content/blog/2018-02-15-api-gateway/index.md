@@ -49,7 +49,7 @@ The **user3** has the resource2 with levels lv1, actions and reports
 
 ## High level implementation
 
-![text](./high-level.png)
+![text2](./high-level.png)
 
 <a name="problems"></a>
 
